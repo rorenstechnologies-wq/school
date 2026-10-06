@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>परीक्षा | गुरुकुल विद्यापीठ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Noto Sans Devanagari",sans-serif;
+    background:#f7f9fc;
+    color:#172b4d;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    height:78px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 25px #00000012;
+}
+
+.nav-inner{
+    width:min(1150px,92%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+}
+
+.brand h1{
+    font-size:19px;
+    color:#123b72;
+    font-weight:900;
+}
+
+.brand span{
+    font-size:10px;
+    color:#d9a441;
+    font-weight:800;
+}
+
+.nav{
+    display:flex;
+    gap:5px;
+    align-items:center;
+}
+
+.nav a{
+    font-size:13px;
+    font-weight:700;
+    padding:10px 12px;
+    transition:.25s;
+}
+
+.nav a:hover{
+    color:#1769aa;
+    transform:translateY(-2px);
+}
+
+.nav .active{
+    background:#123b72;
+    color:white;
+    border-radius:9px;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:#edf4fb;
+    padding:10px;
+    border-radius:10px;
+    font-size:21px;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#09264d,#1769aa);
+    color:#fff;
+    text-align:center;
+    padding:95px 0;
+}
+
+.hero-content{
+    position:relative;
+    z-index:3;
+    animation:heroFade 1s ease forwards;
+}
+
+.hero small{
+    color:#f4d58a;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.hero h2{
+    font-size:clamp(40px,6vw,58px);
+    margin-top:8px;
+    font-weight:900;
+}
+
+.hero p{
+    font-size:14px;
+    color:#ffffffc4;
+    max-width:700px;
+    margin:14px auto 0;
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   HERO GRAPHICS
+========================================================= */
+
+.hero-circle{
+    position:absolute;
+    border:1px solid #ffffff20;
+    border-radius:50%;
+    animation:rotateCircle 20s linear infinite;
+}
+
+.circle-one{
+    width:300px;
+    height:300px;
+    top:-150px;
+    left:-80px;
+}
+
+.circle-two{
+    width:420px;
+    height:420px;
+    right:-200px;
+    bottom:-240px;
+}
+
+.hero-dot{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#f4d58a;
+    opacity:.7;
+    animation:floatDot 4s ease-in-out infinite;
+}
+
+.dot-one{
+    top:25%;
+    left:12%;
+}
+
+.dot-two{
+    top:40%;
+    right:15%;
+    animation-delay:1s;
+}
+
+.dot-three{
+    bottom:20%;
+    left:25%;
+    animation-delay:2s;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    padding:85px 0;
+}
+
+.heading{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 45px;
+}
+
+.heading small{
+    color:#1769aa;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.heading h2{
+    font-size:clamp(28px,4vw,38px);
+    color:#123b72;
+    margin-top:8px;
+    font-weight:900;
+}
+
+.heading p{
+    color:#667085;
+    font-size:13px;
+    margin-top:10px;
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   REGULAR EXAMS
+========================================================= */
+
+.exam-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.exam{
+    position:relative;
+    overflow:hidden;
+    background:white;
+    border:1px solid #e5eaf1;
+    border-radius:22px;
+    padding:30px;
+    transition:.35s ease;
+    opacity:0;
+    transform:translateY(30px);
+    animation:cardReveal .8s ease forwards;
+}
+
+.exam:nth-child(2){
+    animation-delay:.15s;
+}
+
+.exam:nth-child(3){
+    animation-delay:.3s;
+}
+
+.exam:hover{
+    transform:translateY(-9px);
+    box-shadow:0 25px 60px #123b7218;
+    border-color:#cbdbea;
+}
+
+.exam::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#1769aa08;
+    right:-30px;
+    bottom:-35px;
+    transition:.4s;
+}
+
+.exam:hover::after{
+    transform:scale(1.5);
+}
+
+.exam-icon{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+    background:#edf5fc;
+    display:grid;
+    place-items:center;
+    font-size:28px;
+    transition:.35s;
+}
+
+.exam:hover .exam-icon{
+    transform:rotate(-8deg) scale(1.08);
+}
+
+.exam h3{
+    position:relative;
+    z-index:2;
+    color:#123b72;
+    font-size:18px;
+    margin-top:16px;
+}
+
+.exam p{
+    position:relative;
+    z-index:2;
+    color:#667085;
+    font-size:12px;
+    line-height:1.9;
+    margin-top:8px;
+}
+
+
+/* =========================================================
+   COMPETITION SECTION
+========================================================= */
+
+.competition-section{
+    position:relative;
+    overflow:hidden;
+    background:#f0f4f9;
+}
+
+.competition-section::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:#1769aa06;
+    top:-150px;
+    left:-150px;
+}
+
+.competition-section::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:#d9a44108;
+    right:-130px;
+    bottom:-130px;
+}
+
+
+/* =========================================================
+   COMPETITION GRID
+========================================================= */
+
+.competition-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.class-card{
+    position:relative;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:22px;
+    padding:28px;
+    overflow:hidden;
+    transition:.4s ease;
+    opacity:0;
+    transform:translateY(35px);
+}
+
+.class-card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.class-card:hover{
+    transform:translateY(-9px);
+    box-shadow:0 25px 60px #123b7218;
+}
+
+.class-card::before{
+    content:"";
+    position:absolute;
+    width:5px;
+    height:0;
+    background:#1769aa;
+    left:0;
+    top:0;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.class-card:hover::before{
+    height:100%;
+}
+
+.class-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.class-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#123b72;
+    color:white;
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:900;
+}
+
+.class-icon{
+    width:45px;
+    height:45px;
+    display:grid;
+    place-items:center;
+    background:#edf5fc;
+    border-radius:14px;
+    font-size:23px;
+    transition:.35s;
+}
+
+.class-card:hover .class-icon{
+    transform:rotate(8deg) scale(1.1);
+}
+
+.class-card h3{
+    color:#123b72;
+    font-size:18px;
+    margin:17px 0;
+}
+
+.exam-list{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.exam-item{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    color:#53657c;
+    font-size:13px;
+    line-height:1.65;
+}
+
+.exam-item::before{
+    content:"✓";
+    min-width:22px;
+    height:22px;
+    border-radius:50%;
+    background:#eaf7ef;
+    color:#1c9652;
+    display:grid;
+    place-items:center;
+    font-weight:900;
+    font-size:11px;
+}
+
+
+/* =========================================================
+   SPECIAL PREPARATION
+========================================================= */
+
+.special-box{
+    position:relative;
+    z-index:3;
+    margin-top:35px;
+    background:linear-gradient(135deg,#09264d,#1769aa);
+    color:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    overflow:hidden;
+    box-shadow:0 20px 55px #123b7225;
+}
+
+.special-box::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border:1px solid #ffffff20;
+    border-radius:50%;
+    left:-90px;
+    top:-100px;
+}
+
+.special-box::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border:1px solid #ffffff20;
+    border-radius:50%;
+    right:-70px;
+    bottom:-90px;
+}
+
+.special-content{
+    position:relative;
+    z-index:2;
+}
+
+.special-icon{
+    width:65px;
+    height:65px;
+    margin:auto;
+    display:grid;
+    place-items:center;
+    background:#ffffff16;
+    border:1px solid #ffffff25;
+    border-radius:18px;
+    font-size:31px;
+    animation:pulseIcon 2.5s ease-in-out infinite;
+}
+
+.special-box h3{
+    margin-top:15px;
+    font-size:24px;
+}
+
+.special-box p{
+    max-width:650px;
+    margin:9px auto 0;
+    color:#ffffffc9;
+    font-size:13px;
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice{
+    position:relative;
+    z-index:3;
+    margin-top:25px;
+    padding:19px 22px;
+    background:#fff8e8;
+    border-left:4px solid #d9a441;
+    border-radius:12px;
+    font-size:12px;
+    line-height:1.9;
+    color:#675225;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#061b35;
+    color:#ffffff70;
+    padding:32px 20px;
+    text-align:center;
+    font-size:11px;
+}
+
+footer strong{
+    color:#ffffffc7;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes cardReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes rotateCircle{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes floatDot{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+}
+
+@keyframes pulseIcon{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:950px){
+
+    .competition-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+@media(max-width:800px){
+
+    .nav{
+        display:none;
+        position:absolute;
+        top:78px;
+        left:4%;
+        right:4%;
+        background:white;
+        flex-direction:column;
+        padding:10px;
+        border-radius:15px;
+        box-shadow:0 20px 50px #0002;
+    }
+
+    .nav.open{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .exam-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .competition-grid,
+    .exam-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:70px 0;
+    }
+
+    .hero h2{
+        font-size:38px;
+    }
+
+    .section{
+        padding:65px 0;
+    }
+
+    .class-card{
+        padding:23px;
+    }
+
+    .special-box{
+        padding:32px 20px;
+    }
+
+    .special-box h3{
+        font-size:20px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .brand h1{
+        font-size:16px;
+    }
+
+    .brand span{
+        font-size:9px;
+    }
+
+    .logo{
+        width:45px;
+        height:45px;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+<a class="brand" href="index.html">
+
+<img src="images/LOGO.jpg" class="logo">
+
+<div>
+
+<h1>गुरुकुल विद्यापीठ</h1>
+
+<span>ज्ञान • संस्कार • प्रगती</span>
+
+</div>
+
+</a>
+
+
+<button class="menu" onclick="toggle()">☰</button>
+
+
+<nav class="nav" id="nav">
+
+<a href="index.html">मुख्यपृष्ठ</a>
+
+<a href="about.html">आमच्याबद्दल</a>
+
+<a href="teachers.html">शिक्षक</a>
+
+<a href="exams.html" class="active">परीक्षा</a>
+
+<a href="timetable.html">वेळापत्रक</a>
+
+<a href="events.html">उपक्रम</a>
+
+<a href="admission.html">प्रवेश</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+<div class="hero-circle circle-one"></div>
+<div class="hero-circle circle-two"></div>
+
+<div class="hero-dot dot-one"></div>
+<div class="hero-dot dot-two"></div>
+<div class="hero-dot dot-three"></div>
+
+
+<div class="container hero-content">
+
+<small>ACADEMIC • COMPETITIVE EXAMINATION</small>
+
+<h2>परीक्षा</h2>
+
+<p>
+विद्यार्थ्यांच्या शैक्षणिक प्रगतीसोबतच विविध
+शिष्यवृत्ती, प्रज्ञाशोध, ऑलिम्पियाड आणि स्पर्धा परीक्षांसाठी
+विशेष मार्गदर्शन व तयारी.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     REGULAR EXAMS
+========================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="heading">
+
+<small>ACADEMIC ASSESSMENT</small>
+
+<h2>शालेय परीक्षांचे प्रकार</h2>
+
+<p>
+विद्यार्थ्यांच्या नियमित शैक्षणिक प्रगतीचे मूल्यमापन करण्यासाठी
+विविध परीक्षा घेतल्या जातात.
+</p>
+
+</div>
+
+
+<div class="exam-grid">
+
+
+<div class="exam">
+
+<div class="exam-icon">📝</div>
+
+<h3>युनिट टेस्ट</h3>
+
+<p>
+अभ्यासक्रमातील लहान घटकांचे नियमित मूल्यमापन करून
+विद्यार्थ्यांच्या प्रगतीचा आढावा घेतला जातो.
+</p>
+
+</div>
+
+
+<div class="exam">
+
+<div class="exam-icon">📚</div>
+
+<h3>सत्र परीक्षा</h3>
+
+<p>
+सत्रातील विद्यार्थ्यांच्या शैक्षणिक प्रगतीचे
+सर्वांगीण मूल्यमापन केले जाते.
+</p>
+
+</div>
+
+
+<div class="exam">
+
+<div class="exam-icon">🏆</div>
+
+<h3>वार्षिक परीक्षा</h3>
+
+<p>
+संपूर्ण शैक्षणिक वर्षातील विद्यार्थ्यांच्या
+ज्ञानाचे अंतिम मूल्यमापन केले जाते.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     COMPETITIVE EXAM PREPARATION
+========================================================= -->
+
+<section class="section competition-section">
+
+<div class="container">
+
+
+<div class="heading">
+
+<small>COMPETITIVE EXAM PREPARATION</small>
+
+<h2>स्पर्धा परीक्षा तयारी</h2>
+
+<p>
+इयत्तेनुसार विद्यार्थ्यांना विविध स्पर्धा परीक्षा,
+शिष्यवृत्ती परीक्षा, सैनिक परीक्षा आणि ऑलिम्पियाडसाठी
+विशेष मार्गदर्शन दिले जाते.
+</p>
+
+</div>
+
+
+
+<div class="competition-grid">
+
+
+<!-- =====================================================
+     4TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता ४ थी</span>
+
+<div class="class-icon">🎯</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+प्रज्ञाशोध
+</div>
+
+<div class="exam-item">
+N.S.S.E
+</div>
+
+<div class="exam-item">
+जिल्हा प्रज्ञाशोध व इतर स्पर्धा परीक्षा
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     5TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता ५ वी</span>
+
+<div class="class-icon">🏫</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+नवोदय शिष्यवृत्ती
+</div>
+
+<div class="exam-item">
+सातारा सैनिक
+</div>
+
+<div class="exam-item">
+चंद्रपूर सैनिक
+</div>
+
+<div class="exam-item">
+गणितप्रज्ञा
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     6TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता ६ वी</span>
+
+<div class="class-icon">🔬</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+विज्ञानप्रज्ञा
+</div>
+
+<div class="exam-item">
+गणितप्रज्ञा
+</div>
+
+<div class="exam-item">
+M.T.S
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     7TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता ७ वी</span>
+
+<div class="class-icon">📐</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+गणितप्रज्ञा
+</div>
+
+<div class="exam-item">
+प्रज्ञाशोध
+</div>
+
+<div class="exam-item">
+N.S.S.E
+</div>
+
+<div class="exam-item">
+M.T.S
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     8TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता ८ वी</span>
+
+<div class="class-icon">🏅</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+N.M.M.S
+</div>
+
+<div class="exam-item">
+शिष्यवृत्ती
+</div>
+
+<div class="exam-item">
+गणितप्रज्ञा व इतर बाह्य परीक्षा
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     9TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता ९ वी</span>
+
+<div class="class-icon">🧠</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+NTSE
+</div>
+
+<div class="exam-item">
+विज्ञान ऑलिम्पियाड
+</div>
+
+<div class="exam-item">
+गणित ऑलिम्पियाड
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     10TH
+===================================================== -->
+
+<div class="class-card reveal">
+
+<div class="class-top">
+
+<span class="class-number">इयत्ता १० वी</span>
+
+<div class="class-icon">🚀</div>
+
+</div>
+
+<h3>स्पर्धा परीक्षा तयारी</h3>
+
+<div class="exam-list">
+
+<div class="exam-item">
+MHT-CET तयारी
+</div>
+
+<div class="exam-item">
+SPI तयारी
+</div>
+
+<div class="exam-item">
+गणित आणि विज्ञान ऑलिम्पियाड
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     SPECIAL PREPARATION
+========================================================= -->
+
+<div class="special-box">
+
+<div class="special-content">
+
+<div class="special-icon">
+📖
+</div>
+
+<h3>
+सेमी व इंग्रजी विषयाची विशेष तयारी
+</h3>
+
+<p>
+विद्यार्थ्यांच्या भविष्यातील शैक्षणिक गरजा लक्षात घेऊन
+सेमी-इंग्रजी व इंग्रजी विषयामध्ये विशेष मार्गदर्शन,
+नियमित सराव आणि परीक्षाभिमुख तयारी करून घेतली जाते.
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     NOTICE
+========================================================= -->
+
+<div class="notice">
+
+<strong>विशेष वैशिष्ट्य:</strong><br>
+
+प्रत्येक इयत्तेच्या स्तरानुसार विद्यार्थ्यांना
+स्पर्धा परीक्षा, शिष्यवृत्ती परीक्षा, प्रज्ञाशोध,
+सैनिक परीक्षा आणि विविध ऑलिम्पियाडसाठी
+नियमित सराव व मार्गदर्शन दिले जाते.
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+© 2026 गुरुकुल विद्यापीठ • ज्ञान • संस्कार • प्रगती
+
+<br><br>
+
+Developed by ⚡ <strong>RORENS Technologies</strong>
+
+<br>
+
+Innovation • Technology • Growth
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* MOBILE MENU */
+
+function toggle(){
+
+    document.getElementById("nav").classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+========================================================= */
+
+const cards = document.querySelectorAll(".reveal");
+
+
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach((entry,index)=>{
+
+if(entry.isIntersecting){
+
+setTimeout(()=>{
+
+entry.target.classList.add("show");
+
+},index * 100);
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},
+
+{
+threshold:0.12
+}
+
+);
+
+
+cards.forEach(card=>{
+
+observer.observe(card);
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

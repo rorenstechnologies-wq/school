@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>आमच्याबद्दल | गुरुकुल विद्यापीठ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans Devanagari",sans-serif;color:#172b4d;background:#fff}
+a{text-decoration:none;color:inherit}
+.container{width:min(1150px,92%);margin:auto}
+.navbar{height:78px;background:white;display:flex;align-items:center;box-shadow:0 5px 25px #0000000d;position:sticky;top:0;z-index:10}
+.nav-inner{width:min(1150px,92%);margin:auto;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;gap:11px;align-items:center}
+.logo{width:52px;height:52px;object-fit:contain}
+.brand h1{font-size:19px;color:#123b72;font-weight:900}.brand span{font-size:10px;color:#d9a441;font-weight:700}
+.nav{display:flex;gap:5px}.nav a{padding:10px 12px;font-size:13px;font-weight:700}.nav a:hover{color:#1769aa}.nav .active{background:#123b72;color:#fff;border-radius:9px}
+.menu{display:none;border:0;background:#edf4fb;padding:10px;border-radius:10px;font-size:21px}
+.hero{padding:95px 0;background:linear-gradient(135deg,#09264d,#1769aa);color:white;text-align:center}.hero small{color:#f4d58a;font-weight:900}.hero h2{font-size:55px;margin-top:8px;font-weight:900}.hero p{max-width:650px;margin:15px auto;line-height:1.9;color:#ffffffb8;font-size:14px}
+.section{padding:90px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.image{height:480px;width:100%;object-fit:cover;border-radius:25px;box-shadow:0 20px 60px #123b7215}
+.content small{color:#1769aa;font-weight:900}.content h2{font-size:38px;color:#123b72;margin-top:8px;line-height:1.3}.content p{font-size:14px;color:#667085;line-height:2;margin-top:15px}
+.points{display:grid;gap:13px;margin-top:25px}.point{display:flex;gap:10px;font-size:13px;font-weight:700}.check{width:25px;height:25px;background:#eaf6ef;color:#15934c;border-radius:50%;display:grid;place-items:center;flex:none}
+.vision{background:#f6f8fb}.heading{text-align:center;max-width:700px;margin:0 auto 45px}.heading small{color:#1769aa;font-weight:900}.heading h2{font-size:36px;color:#123b72;margin-top:7px}.heading p{font-size:13px;color:#667085;line-height:1.8;margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:white;border:1px solid #e5eaf1;border-radius:20px;padding:28px;transition:.3s}.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px #123b7215}.icon{font-size:27px}.card h3{color:#123b72;font-size:17px;margin-top:13px}.card p{color:#667085;font-size:12px;line-height:1.8;margin-top:7px}
+.quote{padding:80px 0;background:#09264d;color:white;text-align:center}.quote h2{font-size:35px}.quote p{max-width:700px;margin:15px auto;color:#ffffffa8;line-height:1.9;font-size:14px}
+footer{background:#061b35;color:#ffffff70;padding:30px;text-align:center;font-size:11px}
+@media(max-width:800px){.nav{display:none;position:absolute;top:78px;left:4%;right:4%;background:white;padding:10px;border-radius:15px;box-shadow:0 20px 50px #0002;flex-direction:column}.nav.open{display:flex}.menu{display:block}.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.cards{grid-template-columns:1fr}.hero h2{font-size:38px}.section{padding:60px 0}.image{height:350px}.content h2{font-size:30px}}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="nav-inner">
+<a href="index.html" class="brand"><img src="images/LOGO.jpg" class="logo"><div><h1>गुरुकुल विद्यापीठ</h1><span>ज्ञान • संस्कार • प्रगती</span></div></a>
+<button class="menu" onclick="toggle()">☰</button>
+<nav class="nav" id="nav">
+<a href="index.html">मुख्यपृष्ठ</a>
+<a href="about.html" class="active">आमच्याबद्दल</a>
+<a href="teachers.html">शिक्षक</a>
+<a href="exams.html">परीक्षा</a>
+<a href="timetable.html">वेळापत्रक</a>
+<a href="events.html">उपक्रम</a>
+<a href="admission.html">प्रवेश</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<small>ABOUT GURUKUL VIDYAPEETH</small>
+<h2>आमच्याबद्दल</h2>
+<p>ज्ञान, संस्कार आणि विद्यार्थ्यांच्या सर्वांगीण विकासासाठी समर्पित एक प्रेरणादायी शैक्षणिक प्रवास.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="grid">
+
+<div>
+<img src="images/t5.jpeg" class="image" alt="गुरुकुल विद्यापीठ">
+</div>
+
+<div class="content">
+<small>OUR STORY</small>
+<h2>शिक्षणातून व्यक्तिमत्त्व घडविण्याचा आमचा प्रयत्न</h2>
+<p>
+गुरुकुल विद्यापीठामध्ये विद्यार्थ्यांना केवळ पाठ्यपुस्तकातील ज्ञान न देता त्यांच्यामध्ये विचार करण्याची क्षमता, आत्मविश्वास, शिस्त, संस्कार आणि सामाजिक जाणीव विकसित करण्यावर भर दिला जातो.
+</p>
+<p>
+प्रत्येक विद्यार्थी वेगळा आहे आणि त्याच्या क्षमतेनुसार त्याला योग्य संधी व मार्गदर्शन मिळावे, हा आमच्या शैक्षणिक दृष्टिकोनाचा महत्त्वाचा भाग आहे.
+</p>
+
+<div class="points">
+<div class="point"><span class="check">✓</span> विद्यार्थी-केंद्रित शिक्षण</div>
+<div class="point"><span class="check">✓</span> अनुभवी आणि समर्पित शिक्षक</div>
+<div class="point"><span class="check">✓</span> शिस्तबद्ध आणि सकारात्मक वातावरण</div>
+<div class="point"><span class="check">✓</span> कला, क्रीडा आणि सांस्कृतिक विकास</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section vision">
+<div class="container">
+
+<div class="heading">
+<small>OUR VALUES</small>
+<h2>आमची मूल्ये</h2>
+<p>उत्तम शिक्षणासोबत उत्तम व्यक्तिमत्त्व घडविणे हे आमचे ध्येय.</p>
+</div>
+
+<div class="cards">
+
+<div class="card"><div class="icon">📚</div><h3>ज्ञान</h3><p>विद्यार्थ्यांमध्ये जिज्ञासा, ज्ञान आणि विचारशक्ती विकसित करणे.</p></div>
+<div class="card"><div class="icon">🙏</div><h3>संस्कार</h3><p>शिस्त, आदर, प्रामाणिकपणा आणि जबाबदारीची भावना निर्माण करणे.</p></div>
+<div class="card"><div class="icon">🌱</div><h3>विकास</h3><p>विद्यार्थ्यांच्या सर्वांगीण विकासासाठी विविध संधी उपलब्ध करून देणे.</p></div>
+<div class="card"><div class="icon">🤝</div><h3>समाजभावना</h3><p>समाजाप्रती कर्तव्य आणि सहकार्याची भावना विकसित करणे.</p></div>
+<div class="card"><div class="icon">💡</div><h3>सर्जनशीलता</h3><p>नवीन कल्पना, समस्या सोडविण्याची क्षमता आणि सर्जनशीलता वाढविणे.</p></div>
+<div class="card"><div class="icon">🇮🇳</div><h3>जबाबदार नागरिक</h3><p>देशासाठी योगदान देणारे जागरूक आणि जबाबदार नागरिक घडविणे.</p></div>
+
+</div>
+</div>
+</section>
+
+<section class="quote">
+<div class="container">
+<h2>“ज्ञान हे सामर्थ्य आहे, संस्कार ही ओळख आहे.”</h2>
+<p>गुरुकुल विद्यापीठाचा प्रत्येक विद्यार्थी आत्मविश्वासाने आणि जबाबदारीने भविष्याकडे वाटचाल करावा, हीच आमची अपेक्षा.</p>
+</div>
+</section>
+
+<footer>© 2026 गुरुकुल विद्यापीठ • ज्ञान • संस्कार • प्रगती</footer>
+
+<script>
+function toggle(){document.getElementById("nav").classList.toggle("open")}
+</script>
+</body>
+</html>
+

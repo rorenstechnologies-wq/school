@@ -1,0 +1,4092 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>गुरुकुल विद्यापीठ | शिक्षण • संस्कार • विकास</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Arial",sans-serif;
+    background:#fff;
+    color:#162033;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --primary:#0755a0;
+    --primary-dark:#04366d;
+    --primary-light:#eaf4ff;
+
+    --gold:#d8a43a;
+    --gold-light:#f7e5b5;
+
+    --dark:#101828;
+    --text:#5c687a;
+
+    --border:#e5ebf2;
+
+    --shadow:0 25px 60px rgba(20,65,110,.12);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+    width:min(1180px,calc(100% - 40px));
+    margin:auto;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    z-index:99999;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    transition:.6s;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:50%;
+
+    border:3px solid var(--gold);
+
+    animation:loaderPulse 1.5s infinite;
+}
+
+.loader-spinner{
+    width:35px;
+    height:35px;
+
+    border:3px solid #e4edf7;
+    border-top-color:var(--primary);
+
+    border-radius:50%;
+
+    margin-top:20px;
+
+    animation:spin .8s linear infinite;
+}
+
+.loader p{
+    margin-top:15px;
+    color:var(--primary);
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:1000;
+
+    transition:.4s;
+}
+
+header.scrolled{
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.header-inner{
+    min-height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    border:2px solid var(--gold);
+}
+
+.logo h1{
+    font-size:19px;
+    color:var(--dark);
+}
+
+.logo span{
+    font-size:10px;
+    color:var(--primary);
+    letter-spacing:1px;
+}
+
+
+/* NAV */
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+nav>a,
+.dropdown-btn{
+    border:0;
+    background:transparent;
+
+    padding:12px 14px;
+
+    font-size:13px;
+    color:var(--dark);
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+nav>a:hover,
+.dropdown-btn:hover{
+    color:var(--primary);
+    background:var(--primary-light);
+}
+
+
+/* DROPDOWN */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-btn span{
+    display:inline-block;
+    margin-left:5px;
+    transition:.3s;
+}
+
+.dropdown:hover .dropdown-btn span{
+    transform:rotate(180deg);
+}
+
+.dropdown-menu{
+    position:absolute;
+
+    top:calc(100% + 12px);
+    left:0;
+
+    width:220px;
+
+    padding:10px;
+
+    background:rgba(255,255,255,.98);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:.3s;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-menu a{
+    display:block;
+
+    padding:12px;
+
+    font-size:13px;
+
+    border-radius:8px;
+
+    transition:.25s;
+}
+
+.dropdown-menu a:hover{
+    background:var(--primary-light);
+    color:var(--primary);
+    padding-left:18px;
+}
+
+
+/* CONTACT */
+
+.contact-btn{
+    background:var(--primary);
+    color:white !important;
+
+    margin-left:8px;
+
+    padding:12px 20px !important;
+}
+
+.contact-btn:hover{
+    background:var(--primary-dark) !important;
+}
+
+
+/* MOBILE BUTTON */
+
+.menu-btn{
+    display:none;
+
+    width:45px;
+    height:45px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:var(--primary-light);
+
+    cursor:pointer;
+}
+
+.menu-btn span{
+    display:block;
+
+    width:22px;
+    height:2px;
+
+    background:var(--primary);
+
+    margin:5px auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    padding-top:100px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        125deg,
+        #f3f8ff,
+        #fff 55%,
+        #edf6ff
+    );
+
+    display:flex;
+    align-items:center;
+}
+
+
+/* GRID BACKGROUND */
+
+.hero-grid{
+    position:absolute;
+    inset:0;
+
+    opacity:.35;
+
+    background-image:
+        linear-gradient(#dce8f5 1px,transparent 1px),
+        linear-gradient(90deg,#dce8f5 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+
+/* GLOW */
+
+.glow{
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    opacity:.4;
+
+    animation:glowMove 8s infinite alternate;
+}
+
+.glow1{
+    width:400px;
+    height:400px;
+
+    background:#cbe2ff;
+
+    right:-100px;
+    top:80px;
+}
+
+.glow2{
+    width:300px;
+    height:300px;
+
+    background:#ffe7ad;
+
+    left:-80px;
+    bottom:-80px;
+
+    animation-delay:2s;
+}
+
+
+/* HERO CONTENT */
+
+.hero-inner{
+    width:min(1180px,calc(100% - 40px));
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:50px;
+
+    position:relative;
+    z-index:5;
+}
+
+.hero-badge{
+    display:inline-flex;
+
+    align-items:center;
+    gap:9px;
+
+    padding:8px 14px;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    border-radius:30px;
+
+    font-size:12px;
+    font-weight:bold;
+
+    animation:fadeUp .8s;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    box-shadow:0 0 0 5px rgba(34,197,94,.12);
+}
+
+.hero h2{
+    margin-top:22px;
+
+    font-size:clamp(45px,5vw,72px);
+
+    line-height:1.1;
+
+    letter-spacing:-2px;
+
+    color:var(--dark);
+}
+
+.hero h2 span{
+    display:block;
+    color:var(--primary);
+}
+
+.hero-description{
+    max-width:590px;
+
+    margin-top:22px;
+
+    color:var(--text);
+
+    line-height:1.9;
+
+    font-size:15px;
+}
+
+
+/* BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    min-height:52px;
+
+    padding:0 24px;
+
+    border-radius:12px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    font-size:13px;
+    font-weight:bold;
+
+    transition:.35s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
+
+    box-shadow:0 12px 25px rgba(7,85,160,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:var(--primary-dark);
+}
+
+.btn-outline{
+    border:1px solid #cad9e9;
+    background:white;
+    color:var(--primary);
+}
+
+.btn-outline:hover{
+    background:var(--primary-light);
+    transform:translateY(-4px);
+}
+
+
+/* TRUST */
+
+.trust{
+    margin-top:35px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatars{
+    display:flex;
+}
+
+.avatars div{
+    width:37px;
+    height:37px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:grid;
+    place-items:center;
+
+    border:2px solid white;
+
+    margin-left:-7px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.avatars div:first-child{
+    margin-left:0;
+}
+
+.trust-text{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+
+.trust-text strong{
+    font-size:12px;
+}
+
+.trust-text span{
+    font-size:10px;
+    color:var(--text);
+}
+
+
+/* =========================================================
+   HERO GRAPHIC
+========================================================= */
+
+.hero-visual{
+    height:580px;
+
+    position:relative;
+
+    display:grid;
+    place-items:center;
+
+    animation:visualFloat 6s ease-in-out infinite;
+}
+
+.hero-circle{
+    width:min(470px,90%);
+
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    padding:25px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #d7e9ff,
+        #fff
+    );
+
+    box-shadow:
+        0 40px 80px rgba(7,85,160,.16);
+}
+
+.hero-circle-inner{
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    border:8px solid white;
+
+    position:relative;
+}
+
+.hero-circle-inner img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:1s;
+}
+
+.hero-circle:hover img{
+    transform:scale(1.08);
+}
+
+
+/* ORBITS */
+
+.orbit{
+    position:absolute;
+
+    border:1px dashed #b9d3ef;
+
+    border-radius:50%;
+
+    animation:orbit 18s linear infinite;
+}
+
+.orbit1{
+    width:530px;
+    height:530px;
+}
+
+.orbit2{
+    width:620px;
+    height:620px;
+
+    border-color:#ead5a1;
+
+    animation-direction:reverse;
+    animation-duration:25s;
+}
+
+
+/* LOGO */
+
+.center-logo{
+    position:absolute;
+
+    width:85px;
+    height:85px;
+
+    padding:7px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+    animation:logoFloat 4s infinite;
+}
+
+.center-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:50%;
+}
+
+
+/* FLOAT CARDS */
+
+.float-card{
+    position:absolute;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 18px;
+
+    background:rgba(255,255,255,.9);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:14px;
+
+    box-shadow:0 20px 40px rgba(20,60,100,.12);
+
+    z-index:5;
+
+    animation:cardFloat 5s ease-in-out infinite;
+}
+
+.float-card.top{
+    top:15%;
+    right:0;
+}
+
+.float-card.bottom{
+    bottom:15%;
+    left:0;
+
+    animation-delay:1.5s;
+}
+
+.float-icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:10px;
+
+    background:var(--primary-light);
+
+    font-size:20px;
+}
+
+.float-card strong{
+    display:block;
+    font-size:12px;
+}
+
+.float-card small{
+    color:var(--text);
+    font-size:10px;
+}
+
+
+/* FLOATING ICONS */
+
+.floating-icon{
+    position:absolute;
+
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    background:rgba(255,255,255,.8);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:14px;
+
+    box-shadow:0 15px 35px rgba(20,60,100,.08);
+
+    z-index:4;
+
+    animation:iconFloat 5s infinite;
+}
+
+.book{
+    left:8%;
+    top:25%;
+}
+
+.cap{
+    right:8%;
+    top:22%;
+    animation-delay:1s;
+}
+
+.star{
+    left:42%;
+    top:12%;
+    animation-delay:2s;
+}
+
+.pencil{
+    right:25%;
+    bottom:5%;
+    animation-delay:3s;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section.content-section{
+    padding:110px 0;
+}
+
+.section-title{
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 60px;
+}
+
+.section-label{
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:clamp(30px,4vw,46px);
+
+    margin-top:10px;
+
+    color:var(--dark);
+}
+
+.section-title h2 span{
+    color:var(--primary);
+}
+
+.section-line{
+    width:55px;
+    height:4px;
+
+    background:var(--gold);
+
+    margin:18px auto;
+
+    border-radius:20px;
+}
+
+.section-title p{
+    color:var(--text);
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:80px;
+}
+
+.about-image{
+    position:relative;
+
+    padding:15px;
+}
+
+.about-image img{
+    width:100%;
+    height:470px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+    transition:.7s;
+}
+
+.about-image:hover img{
+    transform:scale(1.03);
+}
+
+.about-decoration{
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    background:var(--gold-light);
+
+    border-radius:30px;
+
+    left:0;
+    bottom:0;
+
+    z-index:-1;
+}
+
+.experience{
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:180px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 20px 40px rgba(7,85,160,.25);
+}
+
+.experience strong{
+    display:block;
+
+    font-size:32px;
+}
+
+.experience span{
+    font-size:11px;
+    line-height:1.5;
+}
+
+.about-text small{
+    color:var(--gold);
+    font-weight:bold;
+}
+
+.about-text h3{
+    font-size:34px;
+
+    line-height:1.3;
+
+    margin:12px 0 20px;
+}
+
+.about-text h3 span{
+    color:var(--primary);
+}
+
+.about-text p{
+    color:var(--text);
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+}
+
+.checks{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin:25px 0;
+}
+
+.check{
+    font-size:12px;
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+}
+
+.check i{
+    width:20px;
+    height:20px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    color:var(--primary);
+
+    font-style:normal;
+}
+
+
+/* =========================================================
+   IMAGE STRIP
+========================================================= */
+
+.image-strip{
+    overflow:hidden;
+
+    padding:20px 0;
+
+    background:#f6faff;
+
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.image-track{
+    display:flex;
+
+    width:max-content;
+
+    animation:marquee 30s linear infinite;
+}
+
+.strip-image{
+    width:230px;
+    height:140px;
+
+    margin-right:18px;
+
+    border-radius:15px;
+
+    overflow:hidden;
+}
+
+.strip-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.strip-image:hover img{
+    transform:scale(1.1);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    padding:70px 0;
+
+    background:
+    linear-gradient(
+        120deg,
+        #064486,
+        #0870c5
+    );
+
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+    text-align:center;
+
+    padding:20px;
+
+    border-right:1px solid rgba(255,255,255,.15);
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat-icon{
+    font-size:25px;
+}
+
+.stat strong{
+    display:block;
+
+    font-size:38px;
+
+    margin:8px 0;
+}
+
+.stat span{
+    font-size:12px;
+
+    opacity:.75;
+}
+
+
+/* =========================================================
+   GOALS
+========================================================= */
+
+.goals{
+    background:#f8fbff;
+}
+
+.goals-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+.goal{
+    position:relative;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.goal::before{
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:110px;
+
+    background:var(--primary-light);
+
+    border-radius:50%;
+
+    right:-50px;
+    top:-50px;
+
+    transition:.5s;
+}
+
+.goal:hover{
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow);
+
+    border-color:#c9dff5;
+}
+
+.goal:hover::before{
+    transform:scale(2);
+}
+
+.goal-number{
+    position:absolute;
+
+    right:25px;
+    top:22px;
+
+    color:#b5c0ce;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+.goal-icon{
+    width:60px;
+    height:60px;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--primary-light);
+
+    border-radius:15px;
+
+    font-size:27px;
+
+    margin-bottom:20px;
+
+    transition:.4s;
+}
+
+.goal:hover .goal-icon{
+    transform:rotate(-7deg) scale(1.08);
+}
+
+.goal h3{
+    font-size:19px;
+
+    margin-bottom:12px;
+}
+
+.goal p{
+    color:var(--text);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.goal a{
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+/* =========================================================
+   PAMPHLET
+========================================================= */
+
+.pamphlet{
+    padding:110px 0;
+}
+
+.pamphlet-box{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    background:
+    linear-gradient(
+        120deg,
+        #eff6ff,
+        #fff
+    );
+
+    border:1px solid #dce8f5;
+
+    border-radius:30px;
+
+    padding:55px;
+
+    overflow:hidden;
+}
+
+.pamphlet-text h2{
+    font-size:38px;
+
+    line-height:1.3;
+
+    margin:10px 0 20px;
+}
+
+.pamphlet-text h2 span{
+    color:var(--primary);
+}
+
+.pamphlet-text p{
+    color:var(--text);
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    max-width:450px;
+
+    margin-bottom:25px;
+}
+
+.pamphlet-image{
+    height:420px;
+
+    display:grid;
+
+    place-items:center;
+
+    position:relative;
+}
+
+.pamphlet-image::before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    background:#dbeaff;
+
+    border-radius:50%;
+
+    filter:blur(20px);
+
+    animation:pulse 4s infinite;
+}
+
+.pamphlet-image img{
+    width:270px;
+    height:380px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    transform:rotate(4deg);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.2);
+
+    position:relative;
+
+    transition:.5s;
+}
+
+.pamphlet-image:hover img{
+    transform:rotate(0) translateY(-10px);
+}
+
+
+/* =========================================================
+   ACTIVITIES
+========================================================= */
+
+.activities-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+}
+
+.activity{
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:white;
+
+    transition:.4s;
+}
+
+.activity:hover{
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow);
+}
+
+.activity-image{
+    height:240px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.activity-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.7s;
+}
+
+.activity:hover img{
+    transform:scale(1.1);
+}
+
+.activity-overlay{
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.65)
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    padding:15px;
+}
+
+.activity:hover .activity-overlay{
+    opacity:1;
+}
+
+.activity-overlay span{
+    color:#fff;
+}
+
+.activity-overlay a{
+    width:40px;
+    height:40px;
+
+    background:#fff;
+
+    color:var(--primary);
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+}
+
+.activity-content{
+    padding:20px;
+}
+
+.activity-content small{
+    color:var(--primary);
+
+    font-weight:bold;
+}
+
+.activity-content h3{
+    font-size:17px;
+
+    margin:7px 0;
+}
+
+.activity-content p{
+    color:var(--text);
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.center{
+    text-align:center;
+
+    margin-top:45px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    padding:80px 0;
+
+    background:
+    linear-gradient(
+        120deg,
+        #04366d,
+        #0871c7
+    );
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.cta::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    right:-200px;
+    top:-250px;
+}
+
+.cta-inner{
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.cta small{
+    opacity:.75;
+}
+
+.cta h2{
+    font-size:45px;
+
+    margin:10px 0;
+}
+
+.cta h2 span{
+    color:#ffdc7d;
+}
+
+.cta p{
+    font-size:13px;
+    opacity:.8;
+}
+
+.cta-button{
+    min-width:220px;
+    min-height:60px;
+
+    padding:0 25px;
+
+    background:#fff;
+
+    color:var(--primary);
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-weight:bold;
+
+    transition:.35s;
+}
+
+.cta-button:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#081524;
+
+    color:white;
+
+    padding-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+
+    gap:50px;
+
+    padding-bottom:60px;
+}
+
+.footer-logo{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.footer-logo img{
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--gold);
+}
+
+.footer-logo h3{
+    font-size:17px;
+}
+
+.footer-logo span{
+    color:#8190a5;
+    font-size:10px;
+}
+
+.footer-about p{
+    max-width:350px;
+
+    color:#8d9aac;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.socials{
+    display:flex;
+
+    gap:9px;
+
+    margin-top:20px;
+}
+
+.socials a{
+    width:38px;
+    height:38px;
+
+    border:1px solid #26374c;
+
+    border-radius:10px;
+
+    display:grid;
+    place-items:center;
+
+    transition:.3s;
+}
+
+.socials a:hover{
+    background:var(--primary);
+
+    transform:translateY(-3px);
+}
+
+.footer-column{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.footer-column h3{
+    font-size:14px;
+
+    margin-bottom:8px;
+}
+
+.footer-column a,
+.footer-column p{
+    color:#8d9aac;
+
+    font-size:12px;
+
+    transition:.25s;
+}
+
+.footer-column a:hover{
+    color:#fff;
+
+    padding-left:5px;
+}
+
+.footer-bottom{
+    border-top:1px solid #1d2c40;
+
+    padding:20px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#657388;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-top{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:45px;
+    height:45px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    z-index:100;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+}
+
+.back-top.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   DEVELOPER CREDIT
+========================================================= */
+
+.developer-credit{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    color:#8d9aac;
+}
+
+.developer-credit strong{
+    color:#ffffff;
+    font-weight:700;
+}
+
+.developer-credit span{
+    color:#657388;
+    margin-left:4px;
+    letter-spacing:.3px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:760px){
+
+    .developer-credit{
+        justify-content:center;
+        text-align:center;
+        line-height:1.8;
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes loaderPulse{
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes glowMove{
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(40px,-30px);
+    }
+}
+
+@keyframes visualFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes logoFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(5deg);
+    }
+}
+
+@keyframes cardFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes iconFloat{
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes orbit{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(.9);
+        opacity:.4;
+    }
+
+    50%{
+        transform:scale(1.1);
+        opacity:.7;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    nav>a,
+    .dropdown-btn{
+        padding:10px 7px;
+        font-size:11px;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons,
+    .trust{
+        justify-content:center;
+    }
+
+    .hero h2 span{
+        margin:auto;
+    }
+
+    .hero-visual{
+        height:500px;
+    }
+
+    .about-grid{
+        gap:40px;
+    }
+
+    .goals-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .activities-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:760px){
+
+    .container,
+    .hero-inner{
+        width:calc(100% - 28px);
+    }
+
+
+    /* HEADER */
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        position:absolute;
+
+        top:75px;
+        left:14px;
+        right:14px;
+
+        background:rgba(255,255,255,.98);
+
+        backdrop-filter:blur(20px);
+
+        border:1px solid var(--border);
+
+        border-radius:18px;
+
+        padding:10px;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        box-shadow:0 25px 60px rgba(0,0,0,.12);
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-10px);
+
+        transition:.3s;
+    }
+
+    nav.open{
+        opacity:1;
+        visibility:visible;
+
+        transform:translateY(0);
+    }
+
+    nav>a,
+    .dropdown-btn{
+        width:100%;
+        text-align:left;
+        padding:13px;
+    }
+
+    .contact-btn{
+        text-align:center !important;
+        margin:5px 0;
+    }
+
+    .dropdown-menu{
+        position:static;
+
+        width:100%;
+
+        display:none;
+
+        box-shadow:none;
+
+        border:0;
+
+        transform:none;
+
+        opacity:1;
+
+        visibility:visible;
+
+        background:#f5f9ff;
+    }
+
+    .dropdown.open .dropdown-menu{
+        display:block;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        padding-top:120px;
+        padding-bottom:70px;
+    }
+
+    .hero h2{
+        font-size:43px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .hero-visual{
+        height:390px;
+        margin-top:20px;
+    }
+
+    .hero-circle{
+        width:290px;
+        padding:15px;
+    }
+
+    .orbit1{
+        width:330px;
+        height:330px;
+    }
+
+    .orbit2{
+        width:380px;
+        height:380px;
+    }
+
+    .center-logo{
+        width:65px;
+        height:65px;
+    }
+
+    .float-card{
+        padding:9px 12px;
+    }
+
+    .float-card.top{
+        right:0;
+        top:15%;
+    }
+
+    .float-card.bottom{
+        left:0;
+        bottom:10%;
+    }
+
+    .floating-icon{
+        width:38px;
+        height:38px;
+        font-size:17px;
+    }
+
+    .book{
+        left:3%;
+    }
+
+    .cap{
+        right:3%;
+    }
+
+    .star{
+        left:5%;
+        top:5%;
+    }
+
+    .pencil{
+        right:5%;
+    }
+
+
+    /* SECTIONS */
+
+    section.content-section{
+        padding:75px 0;
+    }
+
+    .section-title{
+        margin-bottom:45px;
+    }
+
+    .section-title h2{
+        font-size:31px;
+    }
+
+
+    /* ABOUT */
+
+    .about-grid{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .about-image img{
+        height:360px;
+    }
+
+    .about-text h3{
+        font-size:28px;
+    }
+
+    .checks{
+        grid-template-columns:1fr;
+    }
+
+
+    /* STATS */
+
+    .stats{
+        padding:45px 0;
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat{
+        border-right:0;
+
+        border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    .stat strong{
+        font-size:30px;
+    }
+
+
+    /* GOALS */
+
+    .goals-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* PAMPHLET */
+
+    .pamphlet-box{
+        grid-template-columns:1fr;
+
+        padding:35px 22px;
+
+        text-align:center;
+    }
+
+    .pamphlet-text p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .pamphlet-image{
+        height:350px;
+    }
+
+    .pamphlet-image img{
+        width:230px;
+        height:310px;
+    }
+
+
+    /* ACTIVITIES */
+
+    .activities-grid{
+        grid-template-columns:1fr;
+    }
+
+    .activity-image{
+        height:260px;
+    }
+
+
+    /* CTA */
+
+    .cta-inner{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .cta h2{
+        font-size:35px;
+    }
+
+    .cta-button{
+        width:100%;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:8px;
+
+        text-align:center;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        transition-duration:.01ms !important;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                         LOADER
+====================================================== -->
+
+<div class="loader" id="loader">
+
+    <img src="images/LOGO.jpg" alt="Logo">
+
+    <div class="loader-spinner"></div>
+
+    <p>गुरुकुल विद्यापीठ</p>
+
+</div>
+
+
+
+<!-- =====================================================
+                         HEADER
+====================================================== -->
+
+<header id="header">
+
+<div class="container header-inner">
+
+
+    <!-- LOGO -->
+
+    <a href="#" class="logo">
+
+        <img src="images/LOGO.jpg" alt="गुरुकुल विद्यापीठ">
+
+        <div>
+
+            <h1>गुरुकुल विद्यापीठ</h1>
+
+            <span>
+                शिक्षण • संस्कार • विकास
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- MOBILE BUTTON -->
+
+    <button class="menu-btn" id="menuBtn">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+
+    <!-- NAVIGATION -->
+
+    <nav id="nav">
+
+
+        <a href="#" class="active">
+            मुख्यपृष्ठ
+        </a>
+
+
+        <!-- ABOUT -->
+
+        <div class="dropdown">
+
+            <button class="dropdown-btn">
+
+                आमच्याबद्दल
+
+                <span>⌄</span>
+
+            </button>
+
+            <div class="dropdown-menu">
+
+                <a href="about.html">
+                    आमच्याबद्दल
+                </a>
+
+                <a href="teachers.html">
+                    शिक्षक वर्ग
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- STUDENTS -->
+
+        <div class="dropdown">
+
+            <button class="dropdown-btn">
+
+                विद्यार्थ्यांसाठी
+
+                <span>⌄</span>
+
+            </button>
+
+            <div class="dropdown-menu">
+
+                <a href="exams.html">
+                    परीक्षा
+                </a>
+
+                <a href="timetable.html">
+                    वेळापत्रक
+                </a>
+
+                <a href="events.html">
+                    कार्यक्रम
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADMISSION -->
+
+        <div class="dropdown">
+
+            <button class="dropdown-btn">
+
+                प्रवेश
+
+                <span>⌄</span>
+
+            </button>
+
+            <div class="dropdown-menu">
+
+                <a href="admission.html">
+                    प्रवेश प्रक्रिया
+                </a>
+
+                <a href="admission.html#documents">
+                    आवश्यक कागदपत्रे
+                </a>
+
+                <a href="admission.html#fees">
+                    शुल्क माहिती
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <a href="events.html">
+            उपक्रम
+        </a>
+
+
+        <a href="#contact" class="contact-btn">
+            संपर्क करा →
+        </a>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+                          HERO
+====================================================== -->
+
+<section class="hero">
+
+<div class="hero-grid"></div>
+
+<div class="glow glow1"></div>
+
+<div class="glow glow2"></div>
+
+
+<!-- FLOATING ICONS -->
+
+<div class="floating-icon book">
+    📚
+</div>
+
+<div class="floating-icon cap">
+    🎓
+</div>
+
+<div class="floating-icon star">
+    ✦
+</div>
+
+<div class="floating-icon pencil">
+    ✎
+</div>
+
+
+<div class="hero-inner">
+
+
+    <!-- HERO TEXT -->
+
+    <div>
+
+        <div class="hero-badge">
+
+            <span class="badge-dot"></span>
+
+            गुणवत्तापूर्ण शिक्षणाची नवी दिशा
+
+        </div>
+
+
+        <h2>
+
+            ज्ञानातून
+
+            <span>
+                भविष्य घडवूया
+            </span>
+
+        </h2>
+
+
+        <p class="hero-description">
+
+            गुरुकुल विद्यापीठामध्ये शिक्षणासोबत संस्कार,
+            कौशल्य आणि आत्मविश्वासाची जोड देऊन
+            विद्यार्थ्यांच्या उज्ज्वल भविष्यासाठी आम्ही
+            सदैव प्रयत्नशील आहोत.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#about" class="btn btn-primary">
+
+                आमच्याबद्दल
+
+                <b>→</b>
+
+            </a>
+
+
+            <a href="admission.html" class="btn btn-outline">
+
+                प्रवेश प्रक्रिया
+
+            </a>
+
+        </div>
+
+
+        <div class="trust">
+
+            <div class="avatars">
+
+                <div>👨‍🏫</div>
+                <div>👩‍🏫</div>
+                <div>👨‍🎓</div>
+                <div>👩‍🎓</div>
+
+            </div>
+
+            <div class="trust-text">
+
+                <strong>
+                    विद्यार्थ्यांचे भविष्य
+                </strong>
+
+                <span>
+                    आमची प्राथमिकता
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HERO GRAPHIC -->
+
+    <div class="hero-visual">
+
+
+        <div class="orbit orbit1"></div>
+
+        <div class="orbit orbit2"></div>
+
+
+        <div class="hero-circle">
+
+            <div class="hero-circle-inner">
+
+                <img src="images\t5S.jpeg"
+                     alt="गुरुकुल विद्यापीठ">
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGO -->
+
+        <div class="center-logo">
+
+            <img src="images/LOGO.jpg"
+                 alt="Logo">
+
+        </div>
+
+
+        <!-- CARD 1 -->
+
+        <div class="float-card top">
+
+            <div class="float-icon">
+                🎓
+            </div>
+
+            <div>
+
+                <strong>
+                    गुणवत्तापूर्ण
+                </strong>
+
+                <small>
+                    शिक्षण
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="float-card bottom">
+
+            <div class="float-icon">
+                ⭐
+            </div>
+
+            <div>
+
+                <strong>
+                    सर्वांगीण
+                </strong>
+
+                <small>
+                    विकास
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         ABOUT
+====================================================== -->
+
+<section class="content-section" id="about">
+
+<div class="container">
+
+
+<div class="section-title reveal">
+
+    <span class="section-label">
+        आमच्याबद्दल
+    </span>
+
+    <h2>
+        शिक्षणासोबत
+        <span>संस्कारांची शिदोरी</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p>
+        विद्यार्थ्यांच्या उज्ज्वल भविष्यासाठी
+        शिक्षण आणि संस्कार यांचा सुंदर संगम.
+    </p>
+
+</div>
+
+
+
+<div class="about-grid">
+
+
+    <div class="about-image reveal">
+
+        <div class="about-decoration"></div>
+
+        <img src="images/t5.jpeg"
+             alt="School">
+
+        <div class="experience">
+
+            <strong>
+                100%
+            </strong>
+
+            <span>
+                विद्यार्थ्यांच्या
+                विकासासाठी समर्पित
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="about-text reveal">
+
+        <small>
+            आमची ओळख
+        </small>
+
+        <h3>
+
+            प्रत्येक विद्यार्थ्यामध्ये
+            <span>
+                एक वेगळे सामर्थ्य
+            </span>
+            आहे.
+
+        </h3>
+
+
+        <p>
+            गुरुकुल विद्यापीठ हे विद्यार्थ्यांना
+            गुणवत्तापूर्ण शिक्षण देण्यासोबतच
+            आत्मविश्वास, शिस्त, नैतिक मूल्ये
+            आणि जीवनोपयोगी कौशल्ये विकसित
+            करण्यासाठी कार्यरत आहे.
+        </p>
+
+
+        <p>
+            आमचा उद्देश केवळ चांगले गुण मिळवणारे
+            विद्यार्थी तयार करणे नसून समाजासाठी
+            जबाबदार आणि सक्षम नागरिक घडवणे हा आहे.
+        </p>
+
+
+        <div class="checks">
+
+            <div class="check">
+                <i>✓</i>
+                गुणवत्तापूर्ण शिक्षण
+            </div>
+
+            <div class="check">
+                <i>✓</i>
+                आधुनिक शिक्षण पद्धती
+            </div>
+
+            <div class="check">
+                <i>✓</i>
+                संस्कार आणि नैतिक मूल्ये
+            </div>
+
+            <div class="check">
+                <i>✓</i>
+                सर्वांगीण विकास
+            </div>
+
+        </div>
+
+
+        <a href="about.html" class="btn btn-primary">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       IMAGE STRIP
+====================================================== -->
+
+<div class="image-strip">
+
+<div class="image-track">
+
+    <div class="strip-image">
+        <img src="images/t1.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t2.jpeg">">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t3.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t4.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t5.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t6.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t7.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t8.jpeg">
+    </div>
+
+
+    <!-- DUPLICATE FOR INFINITE ANIMATION -->
+
+    <div class="strip-image">
+        <img src="images/t9.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t10.jpeg">
+    </div>
+
+    <div class="strip-image">
+        <img src="images/t11.jpeg">
+    </div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+                         STATS
+====================================================== -->
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+
+    <div class="stat reveal">
+
+        <div class="stat-icon">
+            🎓
+        </div>
+
+        <strong class="counter"
+                data-target="1000+">
+            0
+        </strong>
+
+        <span>
+            विद्यार्थी
+        </span>
+
+    </div>
+
+
+    <div class="stat reveal">
+
+        <div class="stat-icon">
+            👨‍🏫
+        </div>
+
+        <strong class="counter"
+                data-target="10">
+            0
+        </strong>
+
+        <span>
+            शिक्षक
+        </span>
+
+    </div>
+
+
+    <div class="stat reveal">
+
+        <div class="stat-icon">
+            🏆
+        </div>
+
+        <strong class="counter"
+                data-target="100">
+            0
+        </strong>
+
+        <span>
+            उपक्रम
+        </span>
+
+    </div>
+
+
+    <div class="stat reveal">
+
+        <div class="stat-icon">
+            ⭐
+        </div>
+
+        <strong>
+            100%
+        </strong>
+
+        <span>
+            समर्पण
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       GOALS
+====================================================== -->
+
+<section class="content-section goals">
+
+<div class="container">
+
+
+<div class="section-title reveal">
+
+    <span class="section-label">
+        आमचे ध्येय
+    </span>
+
+    <h2>
+        विद्यार्थ्यांच्या
+        <span>उज्ज्वल भविष्यासाठी</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p>
+        प्रत्येक विद्यार्थ्याचा सर्वांगीण विकास
+        हेच आमचे ध्येय.
+    </p>
+
+</div>
+
+
+
+<div class="goals-grid">
+
+
+    <div class="goal reveal">
+
+        <span class="goal-number">
+            01
+        </span>
+
+        <div class="goal-icon">
+            🎓
+        </div>
+
+        <h3>
+            शैक्षणिक उत्कृष्टता
+        </h3>
+
+        <p>
+            विद्यार्थ्यांना अभ्यासक्रमातील विषय
+            व्यवस्थित शिकवून त्यांच्या ज्ञानाचा
+            पाया मजबूत करणे.
+        </p>
+
+        <a href="#">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+
+
+    <div class="goal reveal">
+
+        <span class="goal-number">
+            02
+        </span>
+
+        <div class="goal-icon">
+            🎭
+        </div>
+
+        <h3>
+            सांस्कृतिक विकास
+        </h3>
+
+        <p>
+            विविध संस्कृती आणि परंपरांची माहिती
+            देऊन विद्यार्थ्यांना सांस्कृतिक
+            कार्यक्रमांमध्ये सहभागी करणे.
+        </p>
+
+        <a href="#">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+
+
+    <div class="goal reveal">
+
+        <span class="goal-number">
+            03
+        </span>
+
+        <div class="goal-icon">
+            🤝
+        </div>
+
+        <h3>
+            समुदाय प्रतिबद्धता
+        </h3>
+
+        <p>
+            विद्यार्थ्यांमध्ये सहकार्य, संवाद
+            आणि सामाजिक जबाबदारीची भावना
+            विकसित करणे.
+        </p>
+
+        <a href="#">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+
+
+    <div class="goal reveal">
+
+        <span class="goal-number">
+            04
+        </span>
+
+        <div class="goal-icon">
+            🌱
+        </div>
+
+        <h3>
+            सर्वांगीण विकास
+        </h3>
+
+        <p>
+            विद्यार्थ्यांचा शारीरिक, मानसिक,
+            सामाजिक आणि भावनिक विकास साधणे.
+        </p>
+
+        <a href="#">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+
+
+    <div class="goal reveal">
+
+        <span class="goal-number">
+            05
+        </span>
+
+        <div class="goal-icon">
+            ⭐
+        </div>
+
+        <h3>
+            आदर्श नागरिक
+        </h3>
+
+        <p>
+            नैतिक मूल्ये आणि जबाबदारीची जाणीव
+            असणारे चांगले नागरिक घडवणे.
+        </p>
+
+        <a href="#">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+
+
+    <div class="goal reveal">
+
+        <span class="goal-number">
+            06
+        </span>
+
+        <div class="goal-icon">
+            🏆
+        </div>
+
+        <h3>
+            कौशल्य विकास
+        </h3>
+
+        <p>
+            कला, क्रीडा आणि विविध उपक्रमांद्वारे
+            विद्यार्थ्यांच्या कौशल्यांचा विकास करणे.
+        </p>
+
+        <a href="#">
+            अधिक जाणून घ्या →
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       PAMPHLET
+====================================================== -->
+
+<section class="pamphlet">
+
+<div class="container">
+
+<div class="pamphlet-box reveal">
+
+
+    <div class="pamphlet-text">
+
+        <span class="section-label">
+            आमची माहिती
+        </span>
+
+        <h2>
+            गुरुकुल विद्यापीठाची
+            <span>ओळख</span>
+        </h2>
+
+        <p>
+            आमच्या संस्थेची संपूर्ण माहिती,
+            शैक्षणिक उपक्रम आणि विशेष वैशिष्ट्ये
+            जाणून घ्या.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+            माहितीपत्रक पहा →
+        </a>
+
+    </div>
+
+
+    <div class="pamphlet-image">
+
+        <img src="images/t1.jpeg"
+             alt="Gurukul Pamphlet">
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                      ACTIVITIES
+====================================================== -->
+
+<section class="content-section">
+
+<div class="container">
+
+
+<div class="section-title reveal">
+
+    <span class="section-label">
+        विद्यार्थी जीवन
+    </span>
+
+    <h2>
+        आमचे
+        <span>उपक्रम</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p>
+        शिक्षणासोबत विद्यार्थ्यांना विविध
+        अनुभव देणारे उपक्रम.
+    </p>
+
+</div>
+
+
+
+<div class="activities-grid">
+
+
+    <article class="activity reveal">
+
+        <div class="activity-image">
+
+            <img src="images/t12.jpeg">
+
+            <div class="activity-overlay">
+
+                <span>
+                    01
+                </span>
+
+                <a href="#">
+                    →
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="activity-content">
+
+            <small>
+                शिक्षण
+            </small>
+
+            <h3>
+                शैक्षणिक उपक्रम
+            </h3>
+
+            <p>
+                विद्यार्थ्यांच्या ज्ञानवृद्धीसाठी
+                विविध शैक्षणिक उपक्रम.
+            </p>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="activity reveal">
+
+        <div class="activity-image">
+
+            <img src="images/t11.jpeg">
+
+            <div class="activity-overlay">
+
+                <span>
+                    02
+                </span>
+
+                <a href="#">
+                    →
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="activity-content">
+
+            <small>
+                संस्कृती
+            </small>
+
+            <h3>
+                सांस्कृतिक कार्यक्रम
+            </h3>
+
+            <p>
+                विविध सांस्कृतिक कार्यक्रमांमध्ये
+                विद्यार्थ्यांचा उत्स्फूर्त सहभाग.
+            </p>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="activity reveal">
+
+        <div class="activity-image">
+
+            <img src="images/t4.jpeg">
+
+            <div class="activity-overlay">
+
+                <span>
+                    03
+                </span>
+
+                <a href="#">
+                    →
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="activity-content">
+
+            <small>
+                क्रीडा
+            </small>
+
+            <h3>
+                क्रीडा उपक्रम
+            </h3>
+
+            <p>
+                विद्यार्थ्यांच्या शारीरिक विकासासाठी
+                विविध क्रीडा उपक्रम.
+            </p>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="activity reveal">
+
+        <div class="activity-image">
+
+            <img src="images/t2.jpeg">
+
+            <div class="activity-overlay">
+
+                <span>
+                    04
+                </span>
+
+                <a href="#">
+                    →
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="activity-content">
+
+            <small>
+                कार्यक्रम
+            </small>
+
+            <h3>
+                विशेष कार्यक्रम
+            </h3>
+
+            <p>
+                शाळेतील विविध विशेष कार्यक्रम
+                आणि उपक्रम.
+            </p>
+
+        </div>
+
+    </article>
+
+</div>
+
+
+
+<div class="center">
+
+    <a href="events.html"
+       class="btn btn-primary">
+
+        सर्व उपक्रम पहा →
+
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         CTA
+====================================================== -->
+
+<section class="cta">
+
+<div class="container cta-inner">
+
+
+    <div>
+
+        <small>
+            आपल्या मुलाच्या उज्ज्वल भविष्यासाठी
+        </small>
+
+        <h2>
+            आजच योग्य
+            <span>पाऊल</span> उचला.
+        </h2>
+
+        <p>
+            गुणवत्तापूर्ण शिक्षण आणि संस्कारांचा
+            सुंदर संगम — गुरुकुल विद्यापीठ.
+        </p>
+
+    </div>
+
+
+    <a href="admission.html"
+       class="cta-button">
+
+        प्रवेशाबद्दल माहिती
+
+        <b>
+            →
+        </b>
+
+    </a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         FOOTER
+====================================================== -->
+
+<footer id="contact">
+
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+    <!-- ABOUT -->
+
+    <div class="footer-about">
+
+        <div class="footer-logo">
+
+            <img src="images/LOGO.jpg">
+
+            <div>
+
+                <h3>
+                    गुरुकुल विद्यापीठ
+                </h3>
+
+                <span>
+                    शिक्षण • संस्कार • विकास
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            ज्ञान, संस्कार आणि कौशल्यांच्या
+            माध्यमातून विद्यार्थ्यांच्या उज्ज्वल
+            भविष्यासाठी आमचा प्रयत्न.
+        </p>
+
+
+        <div class="socials">
+
+            <a href="#">
+                f
+            </a>
+
+            <a href="#">
+                ◎
+            </a>
+
+            <a href="#">
+                ▶
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUICK LINKS -->
+
+    <div class="footer-column">
+
+        <h3>
+            Quick Links
+        </h3>
+
+        <a href="#">
+            मुख्यपृष्ठ
+        </a>
+
+        <a href="about.html">
+            आमच्याबद्दल
+        </a>
+
+        <a href="teachers.html">
+            शिक्षक वर्ग
+        </a>
+
+        <a href="admission.html">
+            प्रवेश प्रक्रिया
+        </a>
+
+    </div>
+
+
+
+    <!-- STUDENTS -->
+
+    <div class="footer-column">
+
+        <h3>
+            विद्यार्थ्यांसाठी
+        </h3>
+
+        <a href="exams.html">
+            परीक्षा
+        </a>
+
+        <a href="timetable.html">
+            वेळापत्रक
+        </a>
+
+        <a href="events.html">
+            कार्यक्रम
+        </a>
+
+        <a href="events.html">
+            उपक्रम
+        </a>
+
+    </div>
+
+
+
+    <!-- CONTACT -->
+
+    <div class="footer-column">
+
+        <h3>
+            संपर्क
+        </h3>
+
+        <p>
+            📍 गुरुकुल विद्यापीठ
+        </p>
+
+        <p>
+            📞 +91 9665461734
+        </p>
+           <p>
+            📞 +91 7264032517
+        </p>
+
+        <p>
+            ✉️ pirajikhumbhar96@gmail.com
+        </p>
+
+        <p>
+            🕘 सोमवार - शनिवार
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 गुरुकुल विद्यापीठ.
+        सर्व हक्क राखीव.
+    </p>
+
+    <p class="developer-credit"> Developed by ⚡ <strong>RORENS Technologies.</strong> <span>Innovation • Technology • Growth</span> </p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<!-- BACK TO TOP -->
+
+<button class="back-top" id="backTop">
+    ↑
+</button>
+
+
+
+<!-- =====================================================
+                         JAVASCRIPT
+====================================================== -->
+
+<script>
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        document
+        .getElementById("loader")
+        .classList.add("hide");
+
+    },700);
+
+});
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+document.getElementById("header");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 50){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const nav =
+document.getElementById("nav");
+
+menuBtn.addEventListener("click",function(){
+
+    nav.classList.toggle("open");
+
+});
+
+
+
+/* =========================================================
+   MOBILE DROPDOWN
+========================================================= */
+
+document
+.querySelectorAll(".dropdown-btn")
+.forEach(function(button){
+
+    button.addEventListener("click",function(){
+
+        if(window.innerWidth <= 760){
+
+            const dropdown =
+            button.parentElement;
+
+            dropdown.classList.toggle("open");
+
+        }
+
+    });
+
+});
+
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
+
+document
+.querySelectorAll("nav a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        nav.classList.remove("open");
+
+    });
+
+});
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const revealObserver =
+new IntersectionObserver(
+
+    function(entries,observer){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+revealElements.forEach(function(element){
+
+    revealObserver.observe(element);
+
+});
+
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters =
+document.querySelectorAll(".counter");
+
+let counterStarted=false;
+
+
+function startCounters(){
+
+    if(counterStarted)
+        return;
+
+    counterStarted=true;
+
+
+    counters.forEach(function(counter){
+
+        const target =
+        parseInt(counter.dataset.target);
+
+        const duration=1800;
+
+        const startTime =
+        performance.now();
+
+
+        function update(time){
+
+            const progress =
+            Math.min(
+                (time-startTime)/duration,
+                1
+            );
+
+
+            const ease =
+            1-Math.pow(
+                1-progress,
+                3
+            );
+
+
+            const value =
+            Math.floor(
+                target*ease
+            );
+
+
+            counter.textContent =
+            value.toLocaleString("en-IN");
+
+
+            if(progress<1){
+
+                requestAnimationFrame(update);
+
+            }else{
+
+                counter.textContent =
+                target.toLocaleString("en-IN");
+
+            }
+
+        }
+
+
+        requestAnimationFrame(update);
+
+    });
+
+}
+
+
+const stats =
+document.querySelector(".stats");
+
+
+const statsObserver =
+new IntersectionObserver(
+
+    function(entries){
+
+        if(entries[0].isIntersecting){
+
+            startCounters();
+
+            statsObserver.disconnect();
+
+        }
+
+    },
+
+    {
+        threshold:.3
+    }
+
+);
+
+
+statsObserver.observe(stats);
+
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const backTop =
+document.getElementById("backTop");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 500){
+
+        backTop.classList.add("show");
+
+    }else{
+
+        backTop.classList.remove("show");
+
+    }
+
+});
+
+
+backTop.addEventListener("click",function(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+
+
+/* =========================================================
+   HERO MOUSE PARALLAX
+========================================================= */
+
+const heroVisual =
+document.querySelector(".hero-visual");
+
+
+window.addEventListener("mousemove",function(e){
+
+    if(window.innerWidth < 900)
+        return;
+
+
+    const x =
+    (window.innerWidth/2-e.clientX)/80;
+
+    const y =
+    (window.innerHeight/2-e.clientY)/80;
+
+
+    heroVisual.style.transform =
+    `translate(${x}px,${y}px)`;
+
+});
+
+
+
+/* =========================================================
+   BUTTON RIPPLE
+========================================================= */
+
+document
+.querySelectorAll(".btn")
+.forEach(function(button){
+
+    button.addEventListener("click",function(e){
+
+        const ripple =
+        document.createElement("span");
+
+
+        const rect =
+        button.getBoundingClientRect();
+
+
+        const size =
+        Math.max(
+            rect.width,
+            rect.height
+        );
+
+
+        ripple.style.position="absolute";
+
+        ripple.style.width=size+"px";
+
+        ripple.style.height=size+"px";
+
+        ripple.style.borderRadius="50%";
+
+        ripple.style.background=
+        "rgba(255,255,255,.25)";
+
+        ripple.style.left=
+        (e.clientX-rect.left-size/2)+"px";
+
+        ripple.style.top=
+        (e.clientY-rect.top-size/2)+"px";
+
+        ripple.style.pointerEvents="none";
+
+
+        button.style.overflow="hidden";
+
+
+        ripple.animate(
+
+            [
+                {
+                    transform:"scale(0)",
+                    opacity:1
+                },
+
+                {
+                    transform:"scale(2)",
+                    opacity:0
+                }
+
+            ],
+
+            {
+                duration:600,
+                easing:"ease-out"
+            }
+
+        );
+
+
+        button.appendChild(ripple);
+
+
+        setTimeout(function(){
+
+            ripple.remove();
+
+        },650);
+
+    });
+
+});
+
+
+
+/* =========================================================
+   CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener("click",function(e){
+
+    if(!e.target.closest(".dropdown")){
+
+        document
+        .querySelectorAll(".dropdown")
+        .forEach(function(dropdown){
+
+            dropdown.classList.remove("open");
+
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

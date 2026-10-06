@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>प्रवेश प्रक्रिया | गुरुकुल विद्यापीठ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Noto Sans Devanagari",sans-serif;
+    color:#172b4d;
+    background:#f7f9fc;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    background:white;
+    height:78px;
+    display:flex;
+    align-items:center;
+    box-shadow:0 5px 25px #00000010;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-inner{
+    width:min(1150px,92%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+}
+
+.brand h1{
+    font-size:19px;
+    color:#123b72;
+    font-weight:900;
+}
+
+.brand span{
+    font-size:10px;
+    color:#d9a441;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:7px;
+    align-items:center;
+}
+
+.nav-links a{
+    padding:10px 13px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.nav-links a:hover{
+    color:#1769aa;
+}
+
+.nav-links .active{
+    background:#123b72;
+    color:white;
+    border-radius:9px;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:#edf4fb;
+    padding:10px;
+    border-radius:10px;
+    font-size:22px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    padding:90px 0;
+    background:linear-gradient(135deg,#09264d,#1769aa);
+    color:white;
+    text-align:center;
+}
+
+.hero .tag{
+    color:#f4d58a;
+    font-size:12px;
+    font-weight:800;
+}
+
+.hero h2{
+    font-size:clamp(35px,5vw,58px);
+    margin-top:10px;
+    font-weight:900;
+}
+
+.hero p{
+    max-width:650px;
+    margin:15px auto 0;
+    color:#ffffffb8;
+    line-height:1.9;
+    font-size:14px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+    padding:80px 0;
+}
+
+.heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 45px;
+}
+
+.heading small{
+    color:#1769aa;
+    font-weight:900;
+}
+
+.heading h2{
+    font-size:35px;
+    color:#123b72;
+    margin-top:8px;
+}
+
+.heading p{
+    color:#667085;
+    font-size:13px;
+    line-height:1.8;
+    margin-top:10px;
+}
+
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    background:white;
+    border:1px solid #e5eaf1;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.step:hover{
+    transform:translateY(-7px);
+    box-shadow:0 20px 50px #123b7215;
+}
+
+.number{
+    width:50px;
+    height:50px;
+    margin:auto;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#edf5fc;
+    color:#1769aa;
+    font-weight:900;
+}
+
+.step h3{
+    font-size:16px;
+    color:#123b72;
+    margin-top:15px;
+}
+
+.step p{
+    font-size:12px;
+    color:#667085;
+    line-height:1.8;
+    margin-top:7px;
+}
+
+
+/* =========================================================
+   DOCUMENTS
+========================================================= */
+
+.admission-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    max-width:850px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5eaf1;
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 10px 30px #123b7207;
+}
+
+.card h3{
+    color:#123b72;
+    font-size:21px;
+    margin-bottom:20px;
+}
+
+.list{
+    display:grid;
+    gap:13px;
+}
+
+.list div{
+    font-size:13px;
+    color:#53657c;
+    display:flex;
+    gap:10px;
+    line-height:1.6;
+}
+
+.check{
+    color:#1c9652;
+    font-weight:900;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice{
+    background:#fff8e8;
+    border-left:4px solid #d9a441;
+    padding:18px;
+    margin-top:25px;
+    border-radius:10px;
+    font-size:12px;
+    color:#685326;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#061b35;
+    color:white;
+    padding:30px 0;
+    text-align:center;
+    font-size:11px;
+    color:#ffffff75;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:78px;
+        left:4%;
+        right:4%;
+        background:white;
+        padding:10px;
+        border-radius:15px;
+        box-shadow:0 20px 50px #0002;
+        flex-direction:column;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+
+    .section{
+        padding:60px 0;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+    .hero h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+<a href="index.html" class="brand">
+
+<img src="images/LOGO.jpg" class="logo">
+
+<div>
+<h1>गुरुकुल विद्यापीठ</h1>
+<span>ज्ञान • संस्कार • प्रगती</span>
+</div>
+
+</a>
+
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+
+<nav class="nav-links" id="nav">
+
+<a href="index.html">मुख्यपृष्ठ</a>
+
+<a href="about.html">आमच्याबद्दल</a>
+
+<a href="teachers.html">शिक्षक</a>
+
+<a href="exams.html">परीक्षा</a>
+
+<a href="timetable.html">वेळापत्रक</a>
+
+<a href="events.html">उपक्रम</a>
+
+<a href="admission.html" class="active">प्रवेश</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="tag">ADMISSIONS</div>
+
+<h2>
+आपल्या मुलाच्या उज्ज्वल भविष्यासाठी योग्य सुरुवात
+</h2>
+
+<p>
+गुरुकुल विद्यापीठाच्या प्रवेश प्रक्रियेबद्दल आवश्यक माहिती,
+प्रवेशाचे टप्पे आणि आवश्यक कागदपत्रांची माहिती खाली दिली आहे.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ADMISSION PROCESS
+========================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="heading">
+
+<small>ADMISSION PROCESS</small>
+
+<h2>प्रवेश प्रक्रिया</h2>
+
+<p>
+सोप्या आणि पारदर्शक पद्धतीने प्रवेशाची प्रक्रिया पूर्ण करा.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">01</div>
+
+<h3>चौकशी</h3>
+
+<p>
+शाळेबद्दल आणि अभ्यासक्रमाबद्दल आवश्यक माहिती मिळवा.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="number">02</div>
+
+<h3>अर्ज</h3>
+
+<p>
+शाळेकडून उपलब्ध करून दिलेला प्रवेश अर्ज भरा.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="number">03</div>
+
+<h3>कागदपत्रे</h3>
+
+<p>
+आवश्यक कागदपत्रे शाळेकडे सादर करा.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="number">04</div>
+
+<h3>प्रवेश निश्चिती</h3>
+
+<p>
+प्रवेश प्रक्रिया पूर्ण करून विद्यार्थ्याचा प्रवेश निश्चित करा.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     REQUIRED DOCUMENTS
+========================================================= -->
+
+<section class="section" style="background:#f0f4f9">
+
+<div class="container">
+
+<div class="admission-grid">
+
+
+<div class="card">
+
+<h3>प्रवेशासाठी आवश्यक कागदपत्रे</h3>
+
+
+<div class="list">
+
+<div>
+<span class="check">✓</span>
+विद्यार्थ्याचा जन्म दाखला
+</div>
+
+<div>
+<span class="check">✓</span>
+मागील शाळेचा दाखला
+</div>
+
+<div>
+<span class="check">✓</span>
+आधार कार्डाची प्रत
+</div>
+
+<div>
+<span class="check">✓</span>
+पासपोर्ट साईज फोटो
+</div>
+
+<div>
+<span class="check">✓</span>
+मागील इयत्तेचे गुणपत्रक
+</div>
+
+<div>
+<span class="check">✓</span>
+पालकांचा संपर्क क्रमांक
+</div>
+
+</div>
+
+
+<div class="notice">
+
+<strong>महत्त्वाची सूचना:</strong>
+<br>
+
+प्रत्यक्ष प्रवेशाच्या वेळी शाळेने सांगितलेली
+मूळ कागदपत्रे सोबत आणावीत.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+© 2026 गुरुकुल विद्यापीठ • ज्ञान • संस्कार • प्रगती
+
+<br><br>
+
+Developed by ⚡ <strong>RORENS Technologies</strong>
+<br>
+
+Innovation • Technology • Growth
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+function toggleMenu(){
+
+    document.getElementById("nav").classList.toggle("open");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+

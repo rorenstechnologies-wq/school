@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>उपक्रम व कार्यक्रम | गुरुकुल विद्यापीठ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans Devanagari",sans-serif;background:#f7f9fc;color:#172b4d}
+a{text-decoration:none;color:inherit}.container{width:min(1150px,92%);margin:auto}
+.navbar{height:78px;background:#fff;display:flex;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 5px 25px #0001}.nav-inner{width:min(1150px,92%);margin:auto;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:11px}.logo{width:52px;height:52px;object-fit:contain}.brand h1{font-size:19px;color:#123b72}.brand span{font-size:10px;color:#d9a441;font-weight:800}
+.nav{display:flex;gap:5px}.nav a{font-size:13px;font-weight:700;padding:10px 12px}.nav a:hover{color:#1769aa}.nav .active{background:#123b72;color:#fff;border-radius:9px}.menu{display:none;border:0;background:#edf4fb;padding:10px;border-radius:10px;font-size:21px}
+.hero{background:linear-gradient(135deg,#09264d,#1769aa);color:#fff;text-align:center;padding:85px 0}.hero small{color:#f4d58a;font-weight:900}.hero h2{font-size:52px;margin-top:7px}.hero p{font-size:14px;color:#ffffffb5;max-width:650px;margin:12px auto;line-height:1.8}
+.section{padding:80px 0}.heading{text-align:center;max-width:700px;margin:0 auto 40px}.heading small{color:#1769aa;font-weight:900}.heading h2{font-size:35px;color:#123b72;margin-top:7px}.heading p{font-size:13px;color:#667085;margin-top:10px;line-height:1.8}
+.events{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.event{background:white;border:1px solid #e5eaf1;border-radius:22px;overflow:hidden;transition:.35s}.event:hover{transform:translateY(-8px);box-shadow:0 25px 55px #123b7215}.event img{width:100%;height:260px;object-fit:cover}.event-body{padding:22px}.tag{display:inline-block;background:#edf5fc;color:#1769aa;border-radius:20px;padding:5px 10px;font-size:10px;font-weight:900}.event h3{font-size:20px;color:#123b72;margin-top:10px}.event p{font-size:12px;color:#667085;line-height:1.8;margin-top:7px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gallery img{width:100%;height:180px;object-fit:cover;border-radius:15px;transition:.4s}.gallery img:hover{transform:scale(1.04)}
+.cta{background:#09264d;color:white;text-align:center;padding:75px 0}.cta h2{font-size:34px}.cta p{font-size:13px;color:#ffffffa8;margin:10px auto 20px}.btn{display:inline-block;background:#d9a441;color:#102c4e;padding:13px 22px;border-radius:10px;font-weight:900;font-size:13px}
+footer{background:#061b35;color:#ffffff70;padding:30px;text-align:center;font-size:11px}
+@media(max-width:800px){.nav{display:none;position:absolute;top:78px;left:4%;right:4%;background:white;flex-direction:column;padding:10px;border-radius:15px;box-shadow:0 20px 50px #0002}.nav.open{display:flex}.menu{display:block}.events{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.gallery{grid-template-columns:1fr}.hero h2{font-size:38px}.event img{height:220px}}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="nav-inner">
+<a class="brand" href="index.html"><img src="images/LOGO.jpg" class="logo"><div><h1>गुरुकुल विद्यापीठ</h1><span>ज्ञान • संस्कार • प्रगती</span></div></a>
+<button class="menu" onclick="toggle()">☰</button>
+<nav class="nav" id="nav">
+<a href="index.html">मुख्यपृष्ठ</a><a href="about.html">आमच्याबद्दल</a><a href="teachers.html">शिक्षक</a><a href="exams.html">परीक्षा</a><a href="timetable.html">वेळापत्रक</a><a href="events.html" class="active">उपक्रम</a><a href="admission.html">प्रवेश</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<small>EVENTS & ACTIVITIES</small>
+<h2>उपक्रम व कार्यक्रम</h2>
+<p>शिक्षणासोबत कला, संस्कृती, क्रीडा, सामाजिक जाणीव आणि नेतृत्वगुण विकसित करणारे विविध उपक्रम.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<div class="heading">
+<small>OUR ACTIVITIES</small>
+<h2>आमचे प्रमुख उपक्रम</h2>
+<p>विद्यार्थ्यांच्या विविध गुणांना व कौशल्यांना व्यासपीठ देण्यासाठी आयोजित केले जाणारे उपक्रम.</p>
+</div>
+
+<div class="events">
+
+<div class="event">
+<img src="images/t11.jpeg" alt="सांस्कृतिक कार्यक्रम">
+<div class="event-body">
+<span class="tag">संस्कृती</span>
+<h3>सांस्कृतिक कार्यक्रम</h3>
+<p>विद्यार्थ्यांच्या कला, अभिनय, संगीत आणि सर्जनशीलतेला प्रोत्साहन देणारे कार्यक्रम.</p>
+</div>
+</div>
+
+<div class="event">
+<img src="images/t6.jpeg" alt="शैक्षणिक उपक्रम">
+<div class="event-body">
+<span class="tag">शिक्षण</span>
+<h3>शैक्षणिक उपक्रम</h3>
+<p>विषय अधिक मनोरंजक आणि प्रभावी करण्यासाठी विविध शैक्षणिक उपक्रम.</p>
+</div>
+</div>
+
+<div class="event">
+<img src="images/t11.jpeg" alt="विद्यार्थी उपक्रम">
+<div class="event-body">
+<span class="tag">विद्यार्थी विकास</span>
+<h3>विद्यार्थी सहभाग</h3>
+<p>विद्यार्थ्यांना संघकार्य, नेतृत्व आणि संवादकौशल्य विकसित करण्यासाठी संधी.</p>
+</div>
+</div>
+
+<div class="event">
+<img src="images/t4.jpeg" alt="क्रीडा">
+<div class="event-body">
+<span class="tag">क्रीडा</span>
+<h3>क्रीडा व शारीरिक विकास</h3>
+<p>आरोग्य, शिस्त, टीमवर्क आणि स्पर्धात्मक वृत्ती विकसित करण्यासाठी क्रीडा उपक्रम.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section" style="background:#f0f4f9">
+<div class="container">
+
+<div class="heading">
+<small>PHOTO GALLERY</small>
+<h2>आमच्या आठवणी</h2>
+</div>
+
+<div class="gallery">
+<img src="images/t2.jpeg" alt="">
+<img src="images/t4.jpeg" alt="">
+<img src="images/t5.jpeg" alt="">
+<img src="images/t7.jpeg" alt="">
+<img src="images/t8.jpeg" alt="">
+<img src="images/t12.jpeg" alt="">
+<img src="images/t10.jpeg" alt="">
+<img src="images/t13.jpeg" alt="">
+</div>
+
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<h2>गुरुकुल विद्यापीठाचा प्रवास जवळून अनुभवा</h2>
+<p>प्रवेश आणि शाळेबद्दल अधिक माहितीसाठी आमच्याशी संपर्क साधा.</p>
+<a href="admission.html" class="btn">प्रवेश प्रक्रिया →</a>
+</div>
+</section>
+
+<footer>© 2026 गुरुकुल विद्यापीठ • ज्ञान • संस्कार • प्रगती</footer>
+
+<script>
+function toggle(){document.getElementById("nav").classList.toggle("open")}
+</script>
+
+</body>
+</html>
