@@ -1,1 +1,2402 @@
+<!DOCTYPE html>
+<html lang="mr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="हीच अमुची प्रार्थना | गुरुकुल विद्यालय, तुरंबे, ता. राधानगरी, जि. कोल्हापूर">
+
+    <title>हीच अमुची प्रार्थना | गुरुकुल विद्यालय</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "Noto Sans Devanagari", sans-serif;
+
+            background: #f7faff;
+
+            color: #172033;
+
+            overflow-x: hidden;
+        }
+
+
+        img {
+            max-width: 100%;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, .97);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid #e5eaf2;
+
+            box-shadow: 0 5px 25px rgba(15, 23, 42, .06);
+        }
+
+
+        .navbar {
+
+            max-width: 1200px;
+
+            min-height: 76px;
+
+            margin: auto;
+
+            padding: 10px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+
+        /* =====================================================
+           BRAND
+        ====================================================== */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            color: #172033;
+        }
+
+
+        .brand img {
+
+            width: 54px;
+
+            height: 54px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 2px solid #d9a441;
+
+            background: #fff;
+        }
+
+
+        .brand-text h1 {
+
+            color: #123d80;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            line-height: 1.35;
+        }
+
+
+        .brand-text p {
+
+            color: #64748b;
+
+            font-size: 10px;
+
+            margin-top: 2px;
+        }
+
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            display: block;
+
+            color: #334155;
+
+            padding: 10px 11px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .nav-links a:hover {
+
+            color: white;
+
+            background: #1558a6;
+        }
+
+
+        .nav-links a.active {
+
+            color: white;
+
+            background: #1558a6;
+        }
+
+
+
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ====================================================== */
+
+        .menu-btn {
+
+            display: none;
+
+            width: 43px;
+
+            height: 43px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: #1558a6;
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .prayer-hero {
+
+            min-height: 590px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #061c3b 0%,
+                    #0d3b78 45%,
+                    #1768b1 100%
+                );
+
+            color: white;
+        }
+
+
+        /* Background circles */
+
+        .hero-circle {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,.09);
+
+            pointer-events: none;
+        }
+
+
+        .circle-1 {
+
+            width: 520px;
+
+            height: 520px;
+
+            left: -280px;
+
+            top: -270px;
+        }
+
+
+        .circle-2 {
+
+            width: 700px;
+
+            height: 700px;
+
+            right: -350px;
+
+            bottom: -430px;
+        }
+
+
+        .circle-3 {
+
+            width: 190px;
+
+            height: 190px;
+
+            right: 38%;
+
+            top: 12%;
+
+            background: rgba(255,255,255,.02);
+        }
+
+
+        .circle-4 {
+
+            width: 80px;
+
+            height: 80px;
+
+            left: 42%;
+
+            bottom: 15%;
+
+            background: rgba(255,214,107,.05);
+        }
+
+
+        /* Hero container */
+
+        .prayer-hero-container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 75px 25px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 55px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+
+        /* =====================================================
+           HERO LEFT
+        ====================================================== */
+
+        .prayer-hero-content {
+
+            opacity: 0;
+
+            transform: translateX(-40px);
+
+            animation: heroLeft 1s ease forwards;
+        }
+
+
+        @keyframes heroLeft {
+
+            to {
+
+                opacity: 1;
+
+                transform: translateX(0);
+            }
+        }
+
+
+        .hero-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 18px;
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,.11);
+
+            border: 1px solid rgba(255,255,255,.23);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .prayer-hero h2 {
+
+            margin-top: 22px;
+
+            font-size: clamp(43px, 5vw, 65px);
+
+            line-height: 1.25;
+
+            font-weight: 800;
+        }
+
+
+        .prayer-hero h2 span {
+
+            display: block;
+
+            color: #ffd66b;
+        }
+
+
+        .hero-line {
+
+            width: 90px;
+
+            height: 4px;
+
+            border-radius: 5px;
+
+            background: #ffd66b;
+
+            margin: 21px 0;
+        }
+
+
+        .hero-description {
+
+            max-width: 570px;
+
+            color: rgba(255,255,255,.87);
+
+            font-size: 17px;
+
+            line-height: 2;
+        }
+
+
+        .hero-location {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 9px 17px;
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,.09);
+
+            border: 1px solid rgba(255,255,255,.18);
+
+            font-size: 12px;
+        }
+
+
+
+        /* =====================================================
+           STUDENT VISUAL
+        ====================================================== */
+
+        .student-visual {
+
+            min-height: 470px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            transform: translateX(40px);
+
+            animation: heroRight 1.1s .15s ease forwards;
+        }
+
+
+        @keyframes heroRight {
+
+            to {
+
+                opacity: 1;
+
+                transform: translateX(0);
+            }
+        }
+
+
+
+        /* Glow */
+
+        .image-glow {
+
+            position: absolute;
+
+            width: 430px;
+
+            height: 430px;
+
+            border-radius: 50%;
+
+            background: rgba(255,214,107,.18);
+
+            filter: blur(40px);
+
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+
+                transform: scale(.92);
+
+                opacity: .55;
+            }
+
+            50% {
+
+                transform: scale(1.08);
+
+                opacity: .95;
+            }
+        }
+
+
+
+        /* Image ring */
+
+        .student-circle {
+
+            position: relative;
+
+            width: 395px;
+
+            height: 395px;
+
+            padding: 10px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #ffd66b,
+                    #ffffff
+                );
+
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.34);
+
+            animation: studentFloat 5s ease-in-out infinite;
+
+            z-index: 3;
+        }
+
+
+        @keyframes studentFloat {
+
+            0%,
+            100% {
+
+                transform: translateY(0);
+            }
+
+            50% {
+
+                transform: translateY(-12px);
+            }
+        }
+
+
+        .student-circle img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            border-radius: 50%;
+
+            background: #dbeafe;
+        }
+
+
+
+        /* =====================================================
+           FLOATING CARDS
+        ====================================================== */
+
+        .floating-card {
+
+            position: absolute;
+
+            z-index: 10;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            min-width: 195px;
+
+            padding: 12px 15px;
+
+            border-radius: 14px;
+
+            background: rgba(255,255,255,.96);
+
+            color: #172033;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,.23);
+
+            animation: floatingCard 4s ease-in-out infinite;
+        }
+
+
+        .floating-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background: #eef5ff;
+
+            font-size: 21px;
+        }
+
+
+        .floating-card strong {
+
+            display: block;
+
+            color: #1558a6;
+
+            font-size: 14px;
+        }
+
+
+        .floating-card small {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 9px;
+
+            margin-top: 2px;
+
+            line-height: 1.4;
+        }
+
+
+        .card-top {
+
+            top: 43px;
+
+            left: 0;
+
+            animation-delay: .5s;
+        }
+
+
+        .card-bottom {
+
+            right: -5px;
+
+            bottom: 45px;
+
+            animation-delay: 1.2s;
+        }
+
+
+        @keyframes floatingCard {
+
+            0%,
+            100% {
+
+                transform: translateY(0);
+            }
+
+            50% {
+
+                transform: translateY(-10px);
+            }
+        }
+
+
+
+        /* =====================================================
+           DECORATIVE DOTS
+        ====================================================== */
+
+        .dots {
+
+            position: absolute;
+
+            color: #ffd66b;
+
+            font-size: 25px;
+
+            letter-spacing: 6px;
+
+            opacity: .75;
+
+            animation: dotsAnimation 4s ease-in-out infinite;
+        }
+
+
+        .dots-one {
+
+            top: 12px;
+
+            right: 45px;
+        }
+
+
+        .dots-two {
+
+            left: 35px;
+
+            bottom: 15px;
+
+            animation-delay: 1s;
+        }
+
+
+        @keyframes dotsAnimation {
+
+            0%,
+            100% {
+
+                transform: translateY(0);
+
+                opacity: .55;
+            }
+
+            50% {
+
+                transform: translateY(-12px);
+
+                opacity: 1;
+            }
+        }
+
+
+
+        /* =====================================================
+           PRAYER SECTION
+        ====================================================== */
+
+        .prayer-section {
+
+            position: relative;
+
+            padding: 85px 18px 90px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7faff,
+                    #ffffff
+                );
+        }
+
+
+        .prayer-container {
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+
+        /* Heading */
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            padding: 7px 17px;
+
+            border-radius: 50px;
+
+            background: #eaf2ff;
+
+            border: 1px solid #d6e5fa;
+
+            color: #1558a6;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .section-heading h3 {
+
+            margin-top: 15px;
+
+            color: #14284a;
+
+            font-size: 34px;
+
+            font-weight: 800;
+        }
+
+
+        .section-heading h3 span {
+
+            color: #1558a6;
+        }
+
+
+        .heading-line {
+
+            width: 90px;
+
+            height: 3px;
+
+            margin: 15px auto;
+
+            border-radius: 5px;
+
+            background: #d9a441;
+
+            position: relative;
+        }
+
+
+        .heading-line::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: #f7faff;
+
+            color: #d9a441;
+
+            padding: 0 8px;
+
+            font-size: 13px;
+        }
+
+
+        .section-heading p {
+
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+
+        /* =====================================================
+           PRAYER CARD
+        ====================================================== */
+
+        .prayer-card {
+
+            position: relative;
+
+            background: #ffffff;
+
+            border: 1px solid #e1e8f2;
+
+            border-radius: 25px;
+
+            padding: 65px 65px 40px;
+
+            box-shadow:
+                0 25px 70px rgba(15,23,42,.09);
+
+            overflow: hidden;
+        }
+
+
+        .prayer-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #1558a6,
+                    #4d91d1,
+                    #d9a441
+                );
+        }
+
+
+        /* Prayer icon */
+
+        .prayer-symbol {
+
+            width: 72px;
+
+            height: 72px;
+
+            position: absolute;
+
+            top: -36px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: white;
+
+            border: 5px solid #edf4fc;
+
+            box-shadow: 0 10px 30px rgba(15,23,42,.12);
+
+            font-size: 29px;
+        }
+
+
+
+        /* =====================================================
+           PRAYER TEXT
+        ====================================================== */
+
+        .prayer-text {
+
+            text-align: center;
+
+            color: #334155;
+
+            font-size: 18px;
+
+            line-height: 2.05;
+        }
+
+
+        .prayer-text p {
+
+            margin: 0;
+        }
+
+
+        .opening {
+
+            color: #172033;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            line-height: 1.7;
+        }
+
+
+        .highlight {
+
+            margin-top: 8px !important;
+
+            color: #1558a6;
+
+            font-size: 19px;
+
+            font-weight: 800;
+        }
+
+
+        /* Divider */
+
+        .divider {
+
+            width: 75px;
+
+            height: 1px;
+
+            background: #d8e0ea;
+
+            margin: 30px auto;
+
+            position: relative;
+        }
+
+
+        .divider::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: white;
+
+            color: #d9a441;
+
+            padding: 0 9px;
+
+            font-size: 12px;
+        }
+
+
+
+        /* =====================================================
+           VALUES
+        ====================================================== */
+
+        .values {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 13px;
+
+            margin-top: 35px;
+        }
+
+
+        .value {
+
+            text-align: center;
+
+            padding: 17px 10px;
+
+            border-radius: 13px;
+
+            background: #f7faff;
+
+            border: 1px solid #e2eaf5;
+
+            transition: .3s;
+        }
+
+
+        .value:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 25px rgba(21,88,166,.09);
+        }
+
+
+        .value-icon {
+
+            font-size: 23px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .value strong {
+
+            display: block;
+
+            color: #1558a6;
+
+            font-size: 13px;
+        }
+
+
+        .value span {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: #64748b;
+
+            font-size: 10px;
+        }
+
+
+
+        /* =====================================================
+           MESSAGE
+        ====================================================== */
+
+        .message-box {
+
+            margin-top: 38px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 16px;
+
+            background: #f7faff;
+
+            border: 1px solid #dfe9f7;
+        }
+
+
+        .message-box strong {
+
+            display: block;
+
+            color: #1558a6;
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .message-box p {
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.9;
+        }
+
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            padding: 42px 20px 25px;
+
+            text-align: center;
+
+            color: white;
+
+            background: #0a1d37;
+        }
+
+
+        .footer-school {
+
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+
+        .footer-address {
+
+            color: #b8c4d6;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+            margin-bottom: 23px;
+        }
+
+
+        .footer-line {
+
+            width: 100%;
+
+            max-width: 800px;
+
+            height: 1px;
+
+            margin: auto;
+
+            background: rgba(255,255,255,.12);
+        }
+
+
+        .credit {
+
+            color: #aebbd0;
+
+            font-size: 12px;
+
+            margin-top: 20px;
+
+            line-height: 1.8;
+        }
+
+
+        .credit strong {
+
+            color: white;
+        }
+
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+
+                position: absolute;
+
+                top: 76px;
+
+                left: 0;
+
+                right: 0;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 12px 18px 18px;
+
+                background: white;
+
+                border-bottom: 1px solid #e5eaf2;
+
+                box-shadow: 0 15px 30px rgba(15,23,42,.08);
+            }
+
+
+            .nav-links.show {
+
+                display: flex;
+            }
+
+
+            .nav-links a {
+
+                padding: 12px 14px;
+            }
+
+
+            .menu-btn {
+
+                display: block;
+            }
+
+
+            .prayer-hero-container {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                gap: 20px;
+            }
+
+
+            .hero-line {
+
+                margin: 20px auto;
+            }
+
+
+            .hero-description {
+
+                margin: auto;
+            }
+
+
+            .student-visual {
+
+                min-height: 430px;
+
+                margin-top: 10px;
+            }
+
+
+            .card-top {
+
+                left: 5%;
+            }
+
+
+            .card-bottom {
+
+                right: 5%;
+            }
+
+
+            .values {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media(max-width: 600px) {
+
+            .navbar {
+
+                min-height: 68px;
+
+                padding: 9px 13px;
+            }
+
+
+            .brand img {
+
+                width: 46px;
+
+                height: 46px;
+            }
+
+
+            .brand-text h1 {
+
+                font-size: 14px;
+            }
+
+
+            .brand-text p {
+
+                font-size: 8px;
+            }
+
+
+            .nav-links {
+
+                top: 68px;
+            }
+
+
+            /* Hero */
+
+            .prayer-hero {
+
+                min-height: auto;
+            }
+
+
+            .prayer-hero-container {
+
+                padding: 55px 15px 65px;
+
+                gap: 15px;
+            }
+
+
+            .hero-badge {
+
+                font-size: 11px;
+
+                padding: 8px 14px;
+            }
+
+
+            .prayer-hero h2 {
+
+                font-size: 38px;
+
+                margin-top: 17px;
+            }
+
+
+            .hero-description {
+
+                font-size: 13px;
+
+                line-height: 1.9;
+            }
+
+
+            .hero-location {
+
+                font-size: 10px;
+
+                margin-top: 18px;
+            }
+
+
+            /* Student */
+
+            .student-visual {
+
+                min-height: 350px;
+
+                margin-top: 5px;
+            }
+
+
+            .student-circle {
+
+                width: 285px;
+
+                height: 285px;
+            }
+
+
+            .image-glow {
+
+                width: 300px;
+
+                height: 300px;
+            }
+
+
+            /* Floating Cards */
+
+            .floating-card {
+
+                min-width: 150px;
+
+                padding: 9px 10px;
+
+                gap: 7px;
+
+                border-radius: 11px;
+            }
+
+
+            .floating-icon {
+
+                width: 34px;
+
+                height: 34px;
+
+                font-size: 17px;
+            }
+
+
+            .floating-card strong {
+
+                font-size: 11px;
+            }
+
+
+            .floating-card small {
+
+                font-size: 7px;
+            }
+
+
+            .card-top {
+
+                left: 0;
+
+                top: 18px;
+            }
+
+
+            .card-bottom {
+
+                right: 0;
+
+                bottom: 15px;
+            }
+
+
+            .dots-one {
+
+                right: 5px;
+
+                top: 0;
+            }
+
+
+            .dots-two {
+
+                left: 5px;
+
+                bottom: 0;
+            }
+
+
+            /* Prayer */
+
+            .prayer-section {
+
+                padding: 60px 12px 65px;
+            }
+
+
+            .section-heading {
+
+                margin-bottom: 35px;
+            }
+
+
+            .section-heading h3 {
+
+                font-size: 27px;
+            }
+
+
+            .section-heading p {
+
+                font-size: 11px;
+
+                line-height: 1.7;
+            }
+
+
+            .prayer-card {
+
+                padding: 50px 17px 27px;
+
+                border-radius: 19px;
+            }
+
+
+            .prayer-symbol {
+
+                width: 60px;
+
+                height: 60px;
+
+                top: -30px;
+
+                font-size: 25px;
+            }
+
+
+            .prayer-text {
+
+                font-size: 15px;
+
+                line-height: 1.9;
+            }
+
+
+            .opening {
+
+                font-size: 18px;
+
+                line-height: 1.7;
+            }
+
+
+            .highlight {
+
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+
+            .divider {
+
+                margin: 23px auto;
+
+                width: 60px;
+            }
+
+
+            /* Values */
+
+            .values {
+
+                gap: 8px;
+
+                margin-top: 28px;
+            }
+
+
+            .value {
+
+                padding: 13px 6px;
+            }
+
+
+            .value-icon {
+
+                font-size: 20px;
+            }
+
+
+            .value strong {
+
+                font-size: 11px;
+            }
+
+
+            .value span {
+
+                font-size: 8px;
+            }
+
+
+            /* Message */
+
+            .message-box {
+
+                margin-top: 28px;
+
+                padding: 19px 13px;
+            }
+
+
+            .message-box strong {
+
+                font-size: 16px;
+            }
+
+
+            .message-box p {
+
+                font-size: 11px;
+
+                line-height: 1.8;
+            }
+
+
+            /* Footer */
+
+            footer {
+
+                padding: 35px 15px 22px;
+            }
+
+
+            .footer-school {
+
+                font-size: 17px;
+            }
+
+
+            .footer-address {
+
+                font-size: 10px;
+            }
+
+
+            .credit {
+
+                font-size: 10px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ====================================================== */
+
+        @media(max-width: 380px) {
+
+            .student-circle {
+
+                width: 245px;
+
+                height: 245px;
+            }
+
+
+            .student-visual {
+
+                min-height: 315px;
+            }
+
+
+            .floating-card {
+
+                transform: scale(.85);
+            }
+
+
+            .card-top {
+
+                left: -5px;
+            }
+
+
+            .card-bottom {
+
+                right: -5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- =========================================================
+     HEADER
+========================================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+
+        <!-- Brand -->
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="images/logo.jpeg"
+                alt="गुरुकुल विद्यालय लोगो"
+            >
+
+            <div class="brand-text">
+
+                <h1>गुरुकुल विद्यालय</h1>
+
+                <p>शिक्षण • संस्कार • विकास</p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- Mobile Button -->
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Menu">
+
+            ☰
+
+        </button>
+
+
+
+        <!-- Navigation -->
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">
+                    मुख्यपृष्ठ
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    आमच्याविषयी
+                </a>
+            </li>
+
+            <li>
+                <a href="teachers.html">
+                    शिक्षकवृंद
+                </a>
+            </li>
+
+            <li>
+                <a href="exams.html">
+                    परीक्षा
+                </a>
+            </li>
+
+            <li>
+                <a href="timetable.html">
+                    वेळापत्रक
+                </a>
+            </li>
+
+            <li>
+                <a href="events.html">
+                    उपक्रम
+                </a>
+            </li>
+
+            <li>
+                <a href="prarthana.html"
+                   class="active">
+                    प्रार्थना
+                </a>
+            </li>
+
+            <li>
+                <a href="admission.html">
+                    प्रवेश
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================== -->
+
+<section class="prayer-hero">
+
+
+    <!-- Decorative Circles -->
+
+    <div class="hero-circle circle-1"></div>
+
+    <div class="hero-circle circle-2"></div>
+
+    <div class="hero-circle circle-3"></div>
+
+    <div class="hero-circle circle-4"></div>
+
+
+
+    <div class="prayer-hero-container">
+
+
+        <!-- =================================================
+             LEFT CONTENT
+        ================================================== -->
+
+        <div class="prayer-hero-content">
+
+
+            <span class="hero-badge">
+
+                🙏 आमची प्रार्थना
+
+            </span>
+
+
+            <h2>
+
+                हीच अमुची
+
+                <span>प्रार्थना</span>
+
+            </h2>
+
+
+            <div class="hero-line"></div>
+
+
+            <p class="hero-description">
+
+                ज्ञान, संस्कार, माणुसकी आणि सद्विचारांनी
+                विद्यार्थ्यांचे जीवन समृद्ध करणारी
+                आमची प्रेरणादायी प्रार्थना.
+
+            </p>
+
+
+            <div class="hero-location">
+
+                📍 तुरंबे, ता. राधानगरी, जि. कोल्हापूर
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STUDENT IMAGE
+        ================================================== -->
+
+        <div class="student-visual">
+
+
+            <div class="image-glow"></div>
+
+
+            <!-- Student Image -->
+
+            <div class="student-circle">
+
+                <img
+                    src="images/t14.png"
+                    alt="गुरुकुल विद्यालयतील विद्यार्थी प्रार्थना करताना"
+                >
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FLOATING CARD 1
+            ================================================== -->
+
+            <div class="floating-card card-top">
+
+                <div class="floating-icon">
+                    🙏
+                </div>
+
+                <div>
+
+                    <strong>
+                        संस्कार
+                    </strong>
+
+                    <small>
+                        चांगल्या विचारांची सुरुवात
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FLOATING CARD 2
+            ================================================== -->
+
+            <div class="floating-card card-bottom">
+
+                <div class="floating-icon">
+                    🌱
+                </div>
+
+                <div>
+
+                    <strong>
+                        माणुसकी
+                    </strong>
+
+                    <small>
+                        माणसाने माणसाशी माणसासम वागणे
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Dots -->
+
+            <div class="dots dots-one">
+                •••
+            </div>
+
+            <div class="dots dots-two">
+                •••
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PRAYER CONTENT
+========================================================== -->
+
+<section class="prayer-section">
+
+
+    <div class="prayer-container">
+
+
+        <!-- Heading -->
+
+        <div class="section-heading">
+
+            <span class="badge">
+                🙏 शाळेची प्रार्थना
+            </span>
+
+
+            <h3>
+
+                <span>हीच अमुची</span>
+                प्रार्थना
+
+            </h3>
+
+
+            <div class="heading-line"></div>
+
+
+            <p>
+                प्रत्येक विद्यार्थ्याच्या मनात माणुसकी,
+                सद्भावना आणि सद्विचार रुजविणारी प्रार्थना
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PRAYER CARD
+        ================================================== -->
+
+        <div class="prayer-card">
+
+
+            <div class="prayer-symbol">
+                🙏
+            </div>
+
+
+
+            <div class="prayer-text">
+
+
+                <!-- Opening -->
+
+                <div>
+
+                    <p class="opening">
+
+                        हीच अमुची प्रार्थना अन् हेच अमुचे मागणे
+
+                    </p>
+
+
+                    <p class="highlight">
+
+                        माणसाने माणसाशी माणसासम वागणे
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="divider"></div>
+
+
+
+                <!-- Stanza 1 -->
+
+                <div>
+
+                    <p>
+
+                        भोवताली दाटला अंधार दुःखाचा जरी,<br>
+
+                        सूर्य सत्याचा उद्या उगवेल आहे खात्री,<br>
+
+                        तोवरी देई आम्हाला काजव्यांचे जागणे
+
+                    </p>
+
+
+                    <p class="highlight">
+
+                        माणसाने माणसाशी माणसासम वागणे
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="divider"></div>
+
+
+
+                <!-- Stanza 2 -->
+
+                <div>
+
+                    <p>
+
+                        धर्म, जाती, प्रांत, भाषा, द्वेष सारे संपू दे,<br>
+
+                        एक निष्ठा, एक आशा, एक रंगी रंगू दे,<br>
+
+                        अन् पुन्हा पसरो मनावर शुद्धतेचे चांदणे
+
+                    </p>
+
+
+                    <p class="highlight">
+
+                        माणसाने माणसाशी माणसासम वागणे
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="divider"></div>
+
+
+
+                <!-- Stanza 3 -->
+
+                <div>
+
+                    <p>
+
+                        लाभले आयुष्य जितके ते जगावे चांगले,<br>
+
+                        पाउले चालो पुढे... जे थांबले ते संपले,<br>
+
+                        घेतला जो श्वास आता तो पुन्हा ना लाभणे
+
+                    </p>
+
+
+                    <p class="highlight">
+
+                        माणसाने माणसाशी माणसासम वागणे
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 VALUES
+            ================================================== -->
+
+            <div class="values">
+
+
+                <div class="value">
+
+                    <div class="value-icon">
+                        📚
+                    </div>
+
+                    <strong>
+                        ज्ञान
+                    </strong>
+
+                    <span>
+                        ज्ञानाची वाट
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <div class="value-icon">
+                        🌱
+                    </div>
+
+                    <strong>
+                        संस्कार
+                    </strong>
+
+                    <span>
+                        उत्तम व्यक्तिमत्त्व
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <div class="value-icon">
+                        🤝
+                    </div>
+
+                    <strong>
+                        माणुसकी
+                    </strong>
+
+                    <span>
+                        सर्वांशी समान वागणे
+                    </span>
+
+                </div>
+
+
+                <div class="value">
+
+                    <div class="value-icon">
+                        ⭐
+                    </div>
+
+                    <strong>
+                        सद्विचार
+                    </strong>
+
+                    <span>
+                        सकारात्मक जीवन
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MESSAGE
+            ================================================== -->
+
+            <div class="message-box">
+
+                <strong>
+                    🌿 माणुसकी हाच खरा धर्म
+                </strong>
+
+                <p>
+
+                    ज्ञानासोबत संस्कार,
+                    शिक्षणासोबत माणुसकी
+                    आणि यशासोबत समाजाप्रती जबाबदारी —
+                    हीच गुरुकुल विद्यालयाची मूल्ये.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer>
+
+
+    <div class="footer-school">
+
+        गुरुकुल विद्यालय
+
+    </div>
+
+
+    <div class="footer-address">
+
+        तुरंबे, ता. राधानगरी, जि. कोल्हापूर, महाराष्ट्र
+
+    </div>
+
+
+    <div class="footer-line"></div>
+
+
+    <div class="credit">
+
+        Developed by ⚡
+
+        <strong>
+            RORENS Technologies.
+        </strong>
+
+        <br>
+
+        Innovation • Technology • Growth
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", function () {
+
+        navLinks.classList.toggle("show");
+
+    });
+
+
+
+    /* =====================================================
+       CLOSE MENU AFTER CLICK
+    ====================================================== */
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("show");
+
+            });
+
+        });
+
+
+</script>
+
+
+</body>
+
+</html>
+
 
